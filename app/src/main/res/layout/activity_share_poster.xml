@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_image_share"
+    android:descendantFocusability="blocksDescendants">
+
+    <ImageView
+        android:id="@+id/img_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="@dimen/statusbar_view_height"
+        android:contentDescription="@string/app_name"
+        android:padding="16dp"
+        android:src="@drawable/public_back" />
+
+    <ImageView
+        android:id="@+id/image_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/image_share_btn" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/image_share"
+        android:layout_below="@id/img_back"
+        android:layout_marginTop="-16dp"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false">
+
+            <View
+                android:id="@+id/view_need_offset"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="1dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="58dp"
+                android:layout_marginRight="58dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_share_top" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="-35dp"
+                android:layout_marginLeft="-35dp"
+                android:layout_marginTop="50dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_share_left" />
+
+            <ImageView
+                android:id="@+id/img_word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-10dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/image_share_word" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_main_pager"
+                android:layout_width="230dp"
+                android:layout_height="390dp"
+                android:layout_below="@id/img_word"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="27dp"
+                android:layout_marginBottom="42dp"
+                android:clipChildren="false"
+                android:visibility="visible" />
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

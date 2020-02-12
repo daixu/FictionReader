@@ -1,0 +1,19 @@
+<!-- 标签的背景 label_bg -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 标签选中时的背景 -->
+    <item android:state_selected="true">
+        <shape>
+            <corners android:radius="50dp" />
+            <stroke android:color="@color/colorPrimary" android:width="1dp"/>
+            <solid android:color="@android:color/white" />
+        </shape>
+    </item>
+    <!-- 标签的正常背景 -->
+    <item>
+        <shape>
+            <corners android:radius="50dp" />
+            <solid android:color="@android:color/white" />
+            <stroke android:color="#939393" android:width="1dp"/>
+        </shape>
+    </item>
+</selector>

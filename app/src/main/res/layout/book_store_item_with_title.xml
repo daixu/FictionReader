@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="5dp"
+    android:paddingTop="15dp">
+
+    <!-- <com.shangame.fiction.widget.ShadowLayout
+            android:id="@+id/ivCoverLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:containerDeltaLength="0dp"
+            app:containerShadowColor="#cfcfcf"
+            app:containerShadowRadius="5dp">
+
+            <ImageView
+                android:id="@+id/ivCover"
+                android:layout_width="@dimen/cover_width_h2"
+                android:background="@color/colorPrimary"
+                android:layout_height="@dimen/cover_height_h2"
+                android:scaleType="fitXY"
+                android:fitsSystemWindows="true"
+                android:src="@drawable/default_cover" />
+
+        </com.shangame.fiction.widget.ShadowLayout>-->
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="match_parent"
+        android:background="@color/colorPrimary"
+        android:layout_height="@dimen/cover_height_h2"
+        android:scaleType="fitXY"
+        android:fitsSystemWindows="true"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/default_cover" />
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="神雕侠女"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvBookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="金庸"
+        android:textColor="@color/author_color"
+        android:textSize="@dimen/txt_size_h2" />
+</LinearLayout>

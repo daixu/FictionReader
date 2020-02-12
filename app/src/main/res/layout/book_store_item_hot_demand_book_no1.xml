@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/content_gray_bg"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="@dimen/cover_width_h2"
+            android:layout_height="@dimen/cover_height_h2"
+            android:scaleType="centerCrop"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/default_cover"/>
+
+        <ImageView
+            android:id="@+id/tvNo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/ivCover"
+            android:src="@drawable/no1"
+            />
+        <TextView
+            android:id="@+id/tvBookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/ivCover"
+            android:layout_below="@+id/tvNo1"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/txt_size_h5"
+            android:text="神雕侠女"
+            />
+
+
+        <TextView
+            android:id="@+id/tvBookAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivCover"
+            android:layout_below="@+id/tvBookName"
+            android:layout_marginTop="6dp"
+            android:textSize="@dimen/txt_size_h3"
+            android:textColor="@color/author_color"
+            android:text="金庸"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

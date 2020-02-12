@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.author.works.enter.EditBandCardActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/view_title_bar_shadow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/edit_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:background="#FFFFFF"
+        android:gravity="top"
+        android:maxLength="30"
+        android:maxLines="5"
+        android:minLines="5"
+        android:padding="10dp"
+        android:textColor="#2A2D32"
+        android:inputType="number"
+        android:digits="1234567890"
+        android:hint="请仔细填写银行卡号，卡号之间不要输入空格，不要输错哦！"
+        android:textColorHint="#B9B9B9"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/rect_blue_bg"
+        android:elevation="0dp"
+        android:enabled="false"
+        android:outlineProvider="none"
+        android:text="完成"
+        android:textColor="#ffffffff"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_info"
+        app:layout_constraintVertical_bias="0.0"
+        tools:targetApi="lollipop" />
+</android.support.constraint.ConstraintLayout>

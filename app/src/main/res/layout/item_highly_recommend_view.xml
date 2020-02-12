@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawablePadding="10dp"
+            android:text="主编力荐"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/txt_size_h5"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_highly_recommend_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:drawableRight="@drawable/item_arrow"
+            android:drawableEnd="@drawable/item_arrow"
+            android:drawablePadding="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="@string/more" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:nestedScrollingEnabled="false"
+        android:paddingBottom="10dp" />
+</LinearLayout>

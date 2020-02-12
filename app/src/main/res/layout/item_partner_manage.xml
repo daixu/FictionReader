@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/text_invitation_code"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="#F1F1F1"
+        android:text="0"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textColor="#565656"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="#F1F1F1"
+        android:gravity="center"
+        android:text="张大海"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="#565656"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_sup_invitation_code"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="#F1F1F1"
+        android:gravity="center"
+        android:text="0"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="#565656"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_member_total"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="#F1F1F1"
+        android:gravity="center"
+        android:text="0"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="#565656"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_authorization_time"
+        android:layout_width="110dp"
+        android:layout_height="30dp"
+        android:background="#F1F1F1"
+        android:gravity="center"
+        android:text=""
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:textColor="#565656"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_setting"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="#E9F2FF"
+        android:gravity="center"
+        android:text="升级"
+        android:singleLine="true"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:textColor="#4A8DE6"
+        android:textSize="14sp" />
+</LinearLayout>

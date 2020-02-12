@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#F46464</color>
+    <color name="colorPrimaryDark">#df5656</color>
+    <color name="colorAccent">#ffc9c9</color>
+
+    <color name="primary_text">#13161A</color>
+    <color name="secondary_text">#848A95</color>
+    <color name="divider_color">#ffc9c9</color>
+    <color name="author_color">#A2A9B2</color>
+    <color name="disable_color">#CACACA</color>
+    <color name="text_bold_color">#4D4D4D</color>
+
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="normal_text_color">#ADADAD</color>
+    <color name="content_white_bg">#FEFEFE</color>
+    <color name="content_gray_bg">#F5F5F5</color>
+    <color name="text_normal_color">#666666</color>
+    <color name="text_disenable_color">#C3C3C3</color>
+
+    <color name="pay_tour_color">#FFF8F8</color>
+    <color name="half_transparent">#33000000</color>
+    <drawable name="transparent">#00000000</drawable>
+    <drawable name="half_transparent">#ff0000</drawable>
+
+    <color name="rank_top_1">#E6654E</color>
+    <color name="rank_top_2">#F09239</color>
+    <color name="rank_top_3">#E2AC47</color>
+
+    <color name="read_setting_bg">#262626</color>
+    <color name="read_bg_color_1">#FFFFFF</color>
+    <color name="read_bg_color_2">#EFD2D1</color>
+    <color name="read_bg_color_3">#DAE9D7</color>
+    <color name="read_bg_color_4">#E1E9F5</color>
+    <color name="read_bg_color_5">#efd0a9</color>
+    <color name="night_color">#333333</color>
+    <color name="guide_bg">#11333333</color>
+    <color name="book_list_header">#8B929D</color>
+    <color name="task_title_color">#eb5d62</color>
+    <color name="task_red_color">#FFFE4246</color>
+
+    <color name="statistics_line_color">#343233</color>
+    <color name="statistics_circle_color">#FFDA44</color>
+    <color name="statistics_text_normal_color">#ffc1c1c1</color>
+    <color name="statistics_text_click_color">#343233</color>
+    <color name="statistics_title_click_color">#5094F2</color>
+
+    <color name="light_red">#EC4A48</color>
+    <color name="gray">#b8b8b8</color>
+
+    <!--通用分割线细-->
+    <color name="divider_narrow">#E3E3E3</color>
+    <!--通用二级标题的颜色-->
+    <color name="common_h2">#727272</color>
+
+    <color name="read_font_default">#2C2C2C</color>
+
+    <color name="read_bg_default">#493723</color>
+
+    <color name="read_dialog_bg">#2C2C2C</color>
+    <color name="read_dialog_button_select">#E25754</color>
+
+    <color name="translucent">#99343434</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#DE6014</color>
+    <color name="green">#5FB236</color>
+    <color name="black">#000000</color>
+    <color name="light_pink">#fb9090</color>
+    <color name="light_white">#EEEEEE</color>
+    <color name="light_coffee">#A58D5E</color>
+    <color name="light_blue">#039BE5</color>
+    <color name="light_translucent">#23000000</color>
+    <color name="common_gray">#EEEEEE</color>
+
+    <color name="text_default">@color/black</color>
+
+    <!--read-->
+    <dimen name="read_text_top">16sp</dimen>
+    <dimen name="read_text_bottom">12dp</dimen>
+
+    <color name="read_menu_bg">#191919</color>
+    <color name="read_menu_text">#CBCBCB</color>
+    <color name="read_bar_translucent">#88000000</color>
+
+    <!--read-->
+    <color name="read_bg_1">#CEC29C</color>
+    <color name="read_bg_2">#CCEBCC</color>
+    <color name="read_bg_3">#AAAAAA</color>
+    <color name="read_bg_4">#D1CEC5</color>
+    <color name="read_bg_5">#001C27</color>
+    <color name="read_bg_6">#DDCEC29C</color>
+
+    <color name="read_font_1">#2C2C2C</color>
+    <color name="read_font_2">#2F332D</color>
+    <color name="read_font_3">#92918C</color>
+    <color name="read_font_4">#383429</color>
+    <color name="read_font_5">#627176</color>
+
+    <color name="read_bg_night">#000000</color>
+    <color name="read_font_night">#99ffffff</color>
+
+    <color name="widget_button_normal">@color/white</color>
+    <color name="widget_button_selected">#E3E3E3</color>
+
+    <color name="divider_common">#727272</color>
+
+    <color name="bg_play_status_bar">#3C5F78</color>
+
+    <color name="text_color_dis_price">#F46464</color>
+    <color name="text_color_black">#333333</color>
+
+    <color name="wheel_default_background">#F2F2F2</color>
+
+    <color name="wheel_title_bar_background_color">@color/wheel_default_background</color>
+    <color name="wheel_title_bar_title_color">@color/wheel_text_color_1</color>
+    <color name="wheel_title_bar_cancel_color">#000000</color>
+    <color name="wheel_title_bar_ok_color">#000000</color>
+
+    <color name="wheel_black">#000000</color>
+    <color name="wheel_white">#FFFFFF</color>
+    <color name="wheel_text_color_1">#333333</color>
+    <color name="wheel_text_color_2">#666666</color>
+    <color name="wheel_text_color_3">#999999</color>
+    <color name="wheel_text_color_4">#CCCCCC</color>
+</resources>

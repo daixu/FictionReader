@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_gray_bg"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".ui.setting.feedback.SuggestFeedbackActivity">
+
+    <include layout="@layout/public_title_bar"/>
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minLines="5"
+        android:background="@android:color/white"
+        android:hint="@string/hint_personal_intro"
+        android:padding="10dp"
+        android:gravity="top"
+        android:layout_marginTop="20dp"
+        android:maxLength="255"
+        />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/helf_round_theme_bg"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/txt_size_h4"
+        android:text="@string/save"
+        />
+
+</LinearLayout>

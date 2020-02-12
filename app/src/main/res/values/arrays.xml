@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="fiction_type">
+        <item>玄幻</item>
+        <item>言情</item>
+        <item>都市</item>
+        <item>总裁</item>
+        <item>官场</item>
+        <item>军事</item>
+        <item>仙侠</item>
+        <item>灵异</item>
+        <item>历史</item>
+        <item>游戏</item>
+        <item>穿越</item>
+    </array>
+
+    <array name="home_page_category">
+        <item>女生</item>
+        <item>男生</item>
+    </array>
+
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="10dp"
+    android:gravity="center_horizontal"
+    >
+
+    <ImageView
+        android:id="@+id/ivVipIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/vip_icon"/>
+
+    <TextView
+        android:id="@+id/tvVipName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/txt_size_h2"
+        android:text="vip"/>
+
+
+
+</LinearLayout>

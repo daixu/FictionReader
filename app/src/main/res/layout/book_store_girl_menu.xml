@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp"
+    >
+
+
+    <TextView
+        android:id="@+id/menu_classify_girl"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/menu_classify_girl"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h2"
+        android:gravity="center"
+        android:text="分类"/>
+    <TextView
+        android:id="@+id/menu_ancient_words"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/menu_ancient_words"
+        android:textSize="@dimen/txt_size_h2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/primary_text"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="古言"/>
+    <TextView
+        android:id="@+id/menu_modern_words"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/menu_modern_words"
+        android:textSize="@dimen/txt_size_h2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/primary_text"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="现言"/>
+    <TextView
+        android:id="@+id/menu_hot"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size_h2"
+        android:drawableTop="@drawable/menu_hot"
+        android:textColor="#666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="畅销"/>
+
+    <TextView
+        android:id="@+id/menu_end"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size_h2"
+        android:drawableTop="@drawable/menu_end"
+        android:textColor="#666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="完本"/>
+
+</LinearLayout>

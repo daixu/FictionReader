@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <com.shangame.fiction.widget.ShadowLayout
+        android:id="@+id/ivCoverLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:containerDeltaLength="0dp"
+        app:containerShadowColor="#cfcfcf"
+        app:containerShadowRadius="5dp">
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="@dimen/cover_width_h2"
+            android:layout_height="@dimen/cover_height_h2"
+            android:scaleType="centerCrop"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/default_cover" />
+    </com.shangame.fiction.widget.ShadowLayout>
+
+    <ImageView
+        android:id="@+id/ivFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:contentDescription="@string/app_name"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/serial" />
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/ivCoverLayout"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:textColor="@color/primary_text"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="18sp"
+        android:text="神雕侠女" />
+
+    <TextView
+        android:id="@+id/tvBookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivCoverLayout"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:layout_below="@+id/tvBookName"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:layout_marginTop="6dp"
+        android:textSize="@dimen/txt_size_h3"
+        android:textColor="@color/author_color"
+        android:text="金庸" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="3dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/ivCoverLayout"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:layout_below="@+id/tvBookAuthor"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="@dimen/txt_size_h3"
+        android:textColor="#848995"
+        android:text="" />
+</RelativeLayout>

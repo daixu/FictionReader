@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/content_gray_bg"
+    android:orientation="vertical"
+    tools:context=".ui.bookdetail.ErrorFeedbackActivity">
+
+    <include layout="@layout/public_title_bar" />
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:text="盛世婚宠：总裁的小娇妻"
+        android:textColor="#333333"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tvChapterName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@color/white"
+        android:paddingLeft="16dp"
+        android:paddingBottom="16dp"
+        android:text="第一章 机场偶遇"
+        android:textColor="#868686"
+        android:textSize="14sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:text="请选择错误类型(可多选)"
+        android:textColor="#868686"
+        android:textSize="14sp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tvError1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/error_bg"
+                android:checked="true"
+                android:padding="10dp"
+                android:text="错别字漏字"
+                android:textColor="@color/error_color" />
+
+            <TextView
+                android:id="@+id/tvError2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/error_bg"
+                android:padding="10dp"
+                android:text="章节内容缺失"
+                android:textColor="@color/error_color" />
+
+            <TextView
+                android:id="@+id/tvError3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/error_bg"
+                android:padding="10dp"
+                android:text="章节内容重复"
+                android:textColor="@color/error_color" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvError4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/error_bg"
+                android:padding="10dp"
+                android:text="章节顺序错乱"
+                android:textColor="@color/error_color" />
+
+
+            <TextView
+                android:id="@+id/tvError5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/error_bg"
+                android:padding="10dp"
+                android:text="内容排版混乱"
+                android:textColor="@color/error_color" />
+
+            <TextView
+                android:id="@+id/tvError6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/error_bg"
+                android:padding="10dp"
+                android:text="空白页乱码"
+                android:textColor="@color/error_color" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/white">
+
+        <EditText
+            android:id="@+id/etExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="200"
+            android:gravity="top|left"
+            android:background="@color/transparent"
+            android:hint="请在此补充，我们会尽快修正~"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:minLines="5"/>
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_gravity="right|bottom"
+            android:text="0/200"/>
+
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/btnCommit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rect_theme_bg"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/white"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="36dp"
+        android:textSize="18sp"
+        android:text="提交"/>
+
+
+</LinearLayout>

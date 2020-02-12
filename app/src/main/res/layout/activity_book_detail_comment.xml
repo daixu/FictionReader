@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    >
+
+
+    <RelativeLayout
+        android:id="@+id/commentTitleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingBottom="16dp"
+        android:paddingTop="16dp">
+
+        <TextView
+            android:id="@+id/book_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:textColor="@color/primary_text"
+            android:text="@string/book_comment"
+            android:textSize="@dimen/txt_size_h4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCommentCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/book_comment"
+            android:text="@string/comment_user_count" />
+
+        <TextView
+            android:id="@+id/tvWriteComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/write_comment"
+            />
+
+    </RelativeLayout>
+
+
+
+    <com.shangame.fiction.widget.RemindFrameLayout
+        android:id="@+id/remindFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/book_empty"
+        android:text="暂无评论，快来抢沙发"
+        android:paddingBottom="20dp"
+        >
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/commentListView"
+            android:paddingBottom="10dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            />
+
+    </com.shangame.fiction.widget.RemindFrameLayout>
+
+
+    <TextView
+        android:id="@+id/tvLookAllComment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/look_all_comment" />
+
+
+</LinearLayout>

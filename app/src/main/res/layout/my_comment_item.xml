@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/ivUserIcon"
+        android:layout_width="@dimen/list_user_head_width"
+        android:layout_height="@dimen/list_user_head_width"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/default_head"
+        app:riv_oval="true" />
+
+    <TextView
+        android:id="@+id/tvUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/ivUserIcon"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:text="小明" />
+
+    <TextView
+        android:id="@+id/tvComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUsername"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ivUserIcon"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:text="好像，作者再接再厉，加油，加油，赞，赞，赞，赞……加油，加油，赞，赞，赞，赞加油，加油，赞，赞，赞，赞" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvComment"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ivUserIcon"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:text="2018年8月1日"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/tvLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvComment"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toStartOf="@+id/tvCommentCount"
+        android:layout_toLeftOf="@+id/tvCommentCount"
+        android:drawableStart="@drawable/like_n"
+        android:drawableLeft="@drawable/like_n"
+        android:drawablePadding="5dp"
+        android:text="0"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/tvCommentCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvComment"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/comment_icon"
+        android:drawableLeft="@drawable/comment_icon"
+        android:drawablePadding="5dp"
+        android:text="0"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <RelativeLayout
+        android:id="@+id/bookInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTime"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/ivUserIcon"
+        android:layout_toRightOf="@+id/ivUserIcon"
+        android:background="@color/content_gray_bg"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/ivBookCover"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/default_cover" />
+
+        <TextView
+            android:id="@+id/tvBookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/ivBookCover"
+            android:layout_toRightOf="@+id/ivBookCover"
+            android:text="小明"
+            android:textSize="@dimen/txt_size_h4"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvBookName"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/ivBookCover"
+            android:layout_toRightOf="@+id/ivBookCover"
+            android:drawableStart="@drawable/default_head_small"
+            android:drawableLeft="@drawable/default_head_small"
+            android:drawablePadding="5dp"
+            android:text="金庸" />
+    </RelativeLayout>
+</RelativeLayout>

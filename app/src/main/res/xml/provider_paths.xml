@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+        files-path:代表APP的内部存储，类似Context.getFileDirs()目录中的文件
+        cache-path:代表APP内部存储中缓存目录下的文件。类似，getCacheDir()
+        external-files:代表外部存储的根目录。类似，Enviroment.getExternalStorageDirectory()
+        external-files-path:代表APP的外部存储根目录。类似，Context#getExternalFileDir(String).  Context.getExternalFileDir(null).
+        external-cache-path:代表APP外部缓存根目录。类似，Context.getExternalCacheDir()
+    -->
+    <external-path name="external_files" path="."/>
+    <external-cache-path name="external_files" path="."/>
+    <external-files name="external-files" path="."/>
+
+
+</paths>

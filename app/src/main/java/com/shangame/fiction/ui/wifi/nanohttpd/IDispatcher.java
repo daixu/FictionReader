@@ -1,0 +1,1 @@
+package com.shangame.fiction.ui.wifi.nanohttpd;import org.nanohttpd.protocols.http.IHTTPSession;import org.nanohttpd.protocols.http.response.Response;public interface IDispatcher {    Response handle(IHTTPSession session);}

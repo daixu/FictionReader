@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/smartRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.my.pay.history.PayHistoryFragment">
+
+    <com.shangame.fiction.widget.RemindFrameLayout
+        android:id="@+id/remindFrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/book_empty"
+        android:text="暂无消费记录"
+        >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    </com.shangame.fiction.widget.RemindFrameLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.shangame.fiction.widget.ListSwicher xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/viewSwitcher"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/guide_read1"/>
+    <include layout="@layout/guide_read2"/>
+    <include layout="@layout/guide_read3"/>
+
+
+</com.shangame.fiction.widget.ListSwicher>

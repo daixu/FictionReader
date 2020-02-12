@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/menu_classify_boy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/menu_classify_boy"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="分类"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/menu_xuanhuan"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/menu_xuanhuan"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="玄幻"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/menu_dushi"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/menu_dushi"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="都市"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/menu_hot_sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/menu_hot_sell"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="畅销"
+        android:textColor="#666666"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/menu_end_boy"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/menu_end_boy"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="完本"
+        android:textColor="#666666"
+        android:textSize="@dimen/txt_size_h2" />
+</LinearLayout>

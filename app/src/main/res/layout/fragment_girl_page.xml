@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/smartRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:srlEnableLoadMore="true">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.shangame.fiction.widget.ad.AdViewPagerBanner
+                    android:id="@+id/adViewPagerBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <!--加阴影-->
+                <View
+                    android:id="@+id/bannerShadow"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="@drawable/banner_shadow"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/border" />
+            </FrameLayout>
+
+            <include layout="@layout/book_store_girl_menu" />
+
+            <LinearLayout
+                android:id="@+id/kindLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <include layout="@layout/book_store_must_read" />
+
+                <include layout="@layout/book_store_editor_recommend" />
+
+                <FrameLayout
+                    android:id="@+id/adContainer1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+
+                <include layout="@layout/book_store_hot_search" />
+
+                <include layout="@layout/book_store_book_finish" />
+
+                <include layout="@layout/book_store_rank" />
+
+                <include layout="@layout/book_store_ancient" />
+
+                <include layout="@layout/book_store_modern" />
+
+                <FrameLayout
+                    android:id="@+id/adContainer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center" />
+
+                <include layout="@layout/book_store_friend_read" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

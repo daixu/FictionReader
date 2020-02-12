@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.setting.security.SecurityActivity">
+
+    <include layout="@layout/public_title_bar"/>
+
+    <LinearLayout
+        android:id="@+id/bindPhoneLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/bind_phone"/>
+
+        <TextView
+            android:id="@+id/tvPhone"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:textColor="@color/secondary_text"
+            android:textSize="@dimen/txt_size_h2"
+            />
+
+        <TextView
+            android:id="@+id/tvBindState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:drawableRight="@drawable/item_arrow"
+            android:drawablePadding="10dp"
+            android:padding="16dp"
+            android:text="@string/unbind"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/public_line_horizontal"/>
+
+    <FrameLayout
+        android:id="@+id/modifyPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/modify_password"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:drawableRight="@drawable/item_arrow"
+            android:drawablePadding="10dp"
+            android:padding="16dp"
+            />
+
+    </FrameLayout>
+
+    <include layout="@layout/public_line_horizontal"/>
+
+</LinearLayout>

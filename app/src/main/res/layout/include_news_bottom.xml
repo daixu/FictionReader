@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="15dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/image_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name"
+        android:visibility="gone"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/icon_topping" />
+
+    <TextView
+        android:id="@+id/text_author"
+        style="@style/news_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="中新网移动版"
+        android:layout_marginRight="12dp"
+        android:layout_marginEnd="12dp"
+        android:textColor="#A9A9A9"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/text_comment_num"
+        style="@style/news_text_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1020评论"
+        android:textColor="#A9A9A9"
+        android:textSize="11sp" />
+</LinearLayout>

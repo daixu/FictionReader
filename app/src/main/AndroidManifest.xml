@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.shangame.fiction">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
+        tools:ignore="ProtectedPermissions" /> <!-- 推荐的权限 -->
+    <!-- 添加如下权限，以便使用更多的第三方SDK和更精准的统计数据 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" /> <!-- JPUSH -->
+    <permission
+        android:name="com.shangame.fiction.permission.JPUSH_MESSAGE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="com.shangame.fiction.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission
+        android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
+        tools:ignore="ProtectedPermissions" /> <!-- 头条广告SDK权限 -->
+    <!-- 必须要有的权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 如果有视频相关的广告且使用textureView播放，请务必添加，否则黑屏 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application
+        android:name=".AppContext"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:resizeableActivity="false"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5bc7f413f1f556795c000069" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Anmawenxue" />
+
+        <meta-data android:name="android.max_aspect" android:value="2.4" />
+
+        <provider
+            android:name=".storage.file.MyFileProvider"
+            android:authorities="com.shangame.fiction.my.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider> <!-- 头条广告SDK -->
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
+            android:authorities="${applicationId}.TTFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+        <provider
+            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
+            android:authorities="${applicationId}.TTMultiProvider"
+            android:exported="false" /> <!-- wechat -->
+        <receiver
+            android:name=".wxapi.AppRegister"
+            android:permission="com.tencent.mm.plugin.permission.SEND">
+            <intent-filter>
+                <action android:name="com.tencent.mm.plugin.openapi.Intent.ACTION_REFRESH_WXAPP" />
+            </intent-filter>
+        </receiver> <!-- JPUSH -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="cn.jpush.android.service.DataProvider"
+            android:authorities="com.shangame.fiction.DataProvider"
+            android:exported="true" />
+        <provider
+            android:name="cn.jpush.android.service.DownloadProvider"
+            android:authorities="com.shangame.fiction.DownloadProvider"
+            android:exported="true" />
+
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+
+                <category android:name="com.shangame.fiction" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver> <!-- Required SDK 核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PushActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.shangame.fiction" />
+            </intent-filter>
+        </activity> <!-- SDK 核心功能 -->
+        <activity
+            android:name="cn.jpush.android.ui.PopWinActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:exported="false"
+            android:theme="@style/MyDialogStyle">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.shangame.fiction" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="cn.jpush.android.service.DownloadService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver android:name="cn.jpush.android.service.AlarmReceiver" /> <!-- Required since 3.0.7 -->
+        <!-- 新的 tag/alias 接口结果返回需要开发者配置一个自定的广播 -->
+        <!-- 该广播需要继承 JPush 提供的 JPushMessageReceiver 类, 并如下新增一个 Intent-Filter -->
+        <receiver
+            android:name=".push.MyJPushMessageReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.shangame.fiction" />
+            </intent-filter>
+        </receiver> <!-- User defined. 用户自定义的广播接收器 -->
+        <receiver
+            android:name=".push.MyPushReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+
+                <!-- Required 用户注册 SDK 的 intent -->
+                <action android:name="cn.jpush.android.intent.REGISTRATION" />
+                <!-- Required 用户接收 SDK 消息的 intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" />
+                <!-- Required 用户接收 SDK 通知栏信息的 intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" />
+                <!-- Required 用户打开自定义通知栏的 intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
+                <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" />
+
+                <category android:name="com.shangame.fiction" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="developer-default" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="5e9453d8a89a9d4435f0cc4a" />
+
+        <activity
+            android:name=".ui.welcome.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashStyle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.login.LoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.main.MainFrameWorkActivity"
+            android:label="@string/title_activity_main"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity
+            android:name=".ui.login.register.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.signin.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.pay.PayCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.pay.history.PayHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.reader.ReadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenStyle" />
+        <activity
+            android:name=".ui.reader.local.LocalReadActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/ListViewFastScrollThumb">
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.bookdetail.RecommendBookActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.search.SearchBookActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".ui.login.forget.ForgetPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.BookDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.comment.CommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.contents.BookContentsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.booklib.BookLibraryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.booklib.BookLibraryDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.comment.MyCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.account.MyAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.account.PlayTourHistoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.vip.VipPrivilegeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.feedback.SuggestFeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.personal.PersonalProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookstore.BookListByTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookrack.FilteBookActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.message.MessageCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.comment.RelpyCommentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+        <activity
+            android:name=".ui.reader.ChapterOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.comment.SendCommentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.vip.VipPrivilegeDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.personal.ModifyNickNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.personal.ModifyIntroActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.personal.area.ProvinceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.personal.area.CityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.security.SecurityActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.setting.security.BindPhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.web.WebViewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.forget.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.login.AuthLoginActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.gift.ReceivedGiftActivity"
+            android:screenOrientation="portrait" /> <!-- QQ登录 -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101508116" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="behind"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".ui.my.about.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.account.coin.GiftCoinActivity"
+            android:label="@string/title_activity_gift_coin"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.welcome.hobby.PickHobbyKindActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.share.ShareDownloadAppActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullScreenStyle" />
+        <activity
+            android:name=".ui.my.account.coin.CoinDetailListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.account.coin.CoinLoseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.pay.AutoPayActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.booklist.BookListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.booklist.BookListDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookstore.BoyPageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookstore.GirlPageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookstore.BookEndActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.TaskCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.RedPacketActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.TaskRecommendBookActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.ShareWinRedPacketdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.InviteRecordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.ShareToFriendActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.task.DrawMoneyActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.booklist.DailyRecommendActivity" />
+        <activity
+            android:name=".ui.booklist.BatchManagerActivity"
+            android:label="@string/title_activity_batch_manager"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.author.AuthorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.data.InputDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.data.DetailDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.notice.NoticeListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.notice.NoticeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.CreateWorksCompleteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.CreateWorksFirstActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.enter.WorksNameActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.enter.WorksSynopsisActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.author.works.type.WorksTypeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.setting.WorksSettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.enter.EditChapterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.enter.EditContentActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.author.works.release.ConfirmReleaseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.me.info.AuthorDataActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.author.me.info.FinanceInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.author.me.info.SignInfoActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.author.works.enter.EditBandCardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.enter.EditInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.works.WorksListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.statistics.StatisticsDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.author.notice.ReviewInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookdetail.ErrorFeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.wifi.FileSystemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.wifi.WifiBookActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.detail.ListenBookDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.rank.ListenRankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.lib.ListenLibraryDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.menu.ListenMenuActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.more.ListenMoreActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.play.MusicPlayerActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.listen.reward.RewardActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.partner.PartnerManageHomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.member.MemberManageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.sales.partner.PartnerManageActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.sales.recharge.RechargeDetailsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.sales.withdraw.WithdrawActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.account.AccountOverviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.share.poster.SharePosterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.partner.upgrade.UpgradeSilverActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity
+            android:name=".ui.sales.partner.upgrade.UpgradeDiamondActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.partner.upgrade.UpgradeGoldActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.scan.ScannerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.sales.reward.CashRedEnvelopeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.rank.RankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.data.EditDataActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.about.CustomerServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.share.poster.InviteFriendsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.my.pay.PayCompleteActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+
+                <!-- 协议部分 -->
+                <data
+                    android:host="notifyurl"
+                    android:port="8080"
+                    android:scheme="amwx" />
+                <!-- 下面这几行也必须得设置 -->
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".ui.listen.palyer.MusicPlayerService">
+            <intent-filter>
+                <action android:name="com.shangame.fiction.listen.book.ACTION.PLAY_TOGGLE" />
+                <action android:name="com.shangame.fiction.listen.book.ACTION.PLAY_NEXT" />
+                <action android:name="com.shangame.fiction.listen.book.ACTION.PLAY_LAST" />
+                <action android:name="com.shangame.fiction.listen.book.ACTION.STOP_SERVICE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

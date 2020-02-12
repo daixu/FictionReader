@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/smartRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/tvRankHotSell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/rank_hot_sell"
+                android:textColor="@drawable/text_clickable_bg"
+                android:textSize="@dimen/txt_size_h4" />
+
+            <RadioButton
+                android:id="@+id/tvRankClick"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/rank_click"
+                android:textColor="@drawable/text_clickable_bg"
+                android:textSize="@dimen/txt_size_h4" />
+
+            <RadioButton
+                android:id="@+id/tvRankCollect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/rank_collect"
+                android:textColor="@drawable/text_clickable_bg"
+                android:textSize="@dimen/txt_size_h4" />
+
+            <RadioButton
+                android:id="@+id/tvRankGift"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/rank_gift"
+                android:textColor="@drawable/text_clickable_bg"
+                android:textSize="@dimen/txt_size_h4" />
+        </RadioGroup>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/public_line_vetical" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp" />
+    </LinearLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

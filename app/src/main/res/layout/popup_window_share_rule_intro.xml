@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/share_intro_bg"
+        android:layout_marginRight="36dp"
+        android:layout_marginLeft="36dp"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvStep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="#FF542523"
+            android:text="第一阶段"/>
+
+        <View android:layout_width="match_parent"
+             android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="16dp"
+            android:background="#FF542523"/>
+
+        <TextView
+            android:id="@+id/tvRule"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF542523"
+            android:text="1、好友通过扫描你分享的图片二维码下
+载安马文学APP,并且成功登陆注册。 "/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

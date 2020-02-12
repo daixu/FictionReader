@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <include layout="@layout/read_head"/>
+
+
+    <include layout="@layout/read_setting"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/guide_read_9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/guide_read_9"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="60dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/guide_read_9"
+            android:text="给喜欢的小说送礼"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_h5"
+            android:layout_marginTop="80dp"/>
+
+        <ImageView
+            android:id="@+id/guide_read_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/guide_read_9"
+            android:layout_marginRight="80dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="160dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/guide_read_line"
+            android:text="将喜欢的小说加入书架"
+            android:textColor="@color/white"
+            android:textSize="@dimen/txt_size_h5"
+            />
+
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

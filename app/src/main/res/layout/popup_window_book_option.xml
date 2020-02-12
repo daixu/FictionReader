@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/popup_window_black_bg"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvAddToBookrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@drawable/add_mark"
+            android:drawablePadding="10dp"
+            android:padding="16dp"
+            android:text="@string/add_bookmark"
+            android:textColor="#C5C5C5" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#474749" />
+
+        <RelativeLayout
+            android:id="@+id/dianLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:drawableLeft="@drawable/share_white"
+                android:drawablePadding="10dp"
+                android:padding="16dp"
+                android:text="分享"
+                android:textColor="#C5C5C5" />
+
+            <ImageView
+                android:id="@+id/ivDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/tvShare"
+                android:src="@drawable/dot_red2" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#474749" />
+
+        <TextView
+            android:id="@+id/tvError"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="30dp"
+            android:checked="true"
+            android:drawableLeft="@drawable/error"
+            android:drawablePadding="16dp"
+            android:gravity="right"
+            android:padding="12dp"
+            android:text="章节报错"
+            android:textColor="#C5C5C5" />
+    </LinearLayout>
+</FrameLayout>

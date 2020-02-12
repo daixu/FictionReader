@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/guide_read2"
+            android:layout_marginTop="160dp"
+            android:gravity="center"
+            android:textSize="@dimen/txt_size_h5"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:text="上翻页"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="#22000000"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:drawableTop="@drawable/guide_read3"
+            android:gravity="center"
+            android:textSize="@dimen/txt_size_h5"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:text="菜单区"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:drawableBottom="@drawable/guide_read4"
+            android:gravity="center"
+            android:textSize="@dimen/txt_size_h5"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:text="点中间试试"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:drawableTop="@drawable/guide_read1"
+            android:gravity="center"
+            android:textSize="@dimen/txt_size_h5"
+            android:drawablePadding="10dp"
+            android:textColor="@color/white"
+            android:text="上翻页"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

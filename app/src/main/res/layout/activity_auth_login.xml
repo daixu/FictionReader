@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:orientation="vertical"
+    tools:context=".ui.login.AuthLoginActivity">
+
+    <include layout="@layout/public_title_bar" />
+
+    <TextView
+        android:id="@+id/tvSendHint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="@string/security_code_sended" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <EditText
+            android:id="@+id/etSecurityCode"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/hint_security_code"
+            android:inputType="number"
+            android:maxLength="6"
+            android:maxLines="1"
+            android:textSize="@dimen/txt_size_h3" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/public_line_vetical" />
+
+        <TextView
+            android:id="@+id/tvSecurityCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="50dp"
+            android:text="@string/obtain_security_code"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <include layout="@layout/public_line_horizontal" />
+
+    <Button
+        android:id="@+id/btnRegistAndLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/helf_round_theme_bg"
+        android:enabled="false"
+        android:text="@string/register_and_login"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/txt_size_h5" />
+
+</LinearLayout>

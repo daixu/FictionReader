@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/sure_pay"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h4" />
+
+    <include layout="@layout/public_line_horizontal" />
+
+    <TextView
+        android:id="@+id/tvPayAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/pay_money_amount"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h6"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/choose_pay_method"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/txt_size_h3" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include layout="@layout/public_line_horizontal" />
+
+    <TextView
+        android:id="@+id/tvPay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="@string/immediate_pay"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/txt_size_h4" />
+</LinearLayout>

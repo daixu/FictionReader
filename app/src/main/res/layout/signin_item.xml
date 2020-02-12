@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="40dp"
+    android:layout_height="wrap_content"
+    >
+
+
+    <TextView
+        android:id="@+id/tvGift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="10sp"
+        android:text="10赠币"
+        android:textColor="#111111"/>
+
+    <ImageView
+        android:id="@+id/ivLine1"
+        android:layout_below="@+id/tvGift"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginRight="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_toLeftOf="@+id/ivDot"
+        android:src="@drawable/sign_line"/>
+
+
+    <ImageView
+        android:id="@+id/ivDot"
+        android:layout_below="@+id/tvGift"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/dot_red"/>
+
+    <ImageView
+        android:id="@+id/ivLine2"
+        android:layout_below="@+id/tvGift"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_toRightOf="@+id/ivDot"
+        android:src="@drawable/sign_line"/>
+
+    <TextView
+        android:id="@+id/tvState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:textSize="10sp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/ivDot"
+        android:gravity="center"
+        android:text="第一天"
+        android:textColor="#111111"/>
+
+</RelativeLayout>

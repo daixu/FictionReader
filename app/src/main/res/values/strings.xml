@@ -1,0 +1,528 @@
+<resources>
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- 公共模块-->
+    <string name="sure">确认</string>
+    <string name="cancel">取消</string>
+    <string name="finish">完成</string>
+    <string name="request_failed">请求失败</string>
+
+    <string name="app_name">安马文学</string>
+    <string name="connect_time_out">连接服务器超时</string>
+    <string name="network_error">网络异常</string>
+    <string name="take_photo_failed">启动相机失败，请检查权限设置</string>
+    <string name="open_album_failed">打开相册失败，请检查权限设置</string>
+    <string name="request_error">请求失败</string>
+    <string name="not_login">请求先登录</string>
+    <string name="loading">请稍等……</string>
+
+
+    <!-- 登录模块-->
+    <string name="login">登录</string>
+    <string name="cancel_login">您取消了登录</string>
+    <string name="login_failed">登录失败</string>
+    <string name="code_login">验证码登录</string>
+    <string name="passoword_login">密码登录</string>
+    <string name="username_empty">账户不能为空</string>
+    <string name="password_empty">密码不能为空</string>
+    <string name="password_lenght_error">密码长度不对</string>
+    <string name="login_success">登录成功</string>
+    <string name="phone_number">手机号/账户</string>
+    <string name="password">密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="find_password">找回密码</string>
+    <string name="change_password">修改密码</string>
+    <string name="change_password_success">修改密码成功</string>
+    <string name="register">注册</string>
+    <string name="other_login">其他方式登录</string>
+    <string name="wechat">微信</string>
+    <string name="share_friend_cirle">朋友圈</string>
+    <string name="qq">QQ</string>
+    <string name="qq_zone">QQ空间</string>
+    <string name="weibo">微博</string>
+    <string name="hint_phone_number">请输入手机号码</string>
+    <string name="hint_register_phone_number">请输入注册手机号码</string>
+    <string name="hint_bind_phone_number">请输入绑定手机号码</string>
+    <string name="hint_bind_phone_success">绑定手机号码成功</string>
+    <string name="hint_phone_number_error">手机号码格式不正确</string>
+    <string name="hint_phone_number_illegal">您输入的手机号码非注册手机号码</string>
+    <string name="hint_input_auth_code">请输入6位数验证码</string>
+    <string name="hint_security_code">请输入验证码</string>
+    <string name="hint_setting_password">请设置登录密码(不少于6位)</string>
+    <string name="hint_new_password">请输入新密码(不少于6位)</string>
+    <string name="hint_new_password_again">请再次输入新密码</string>
+    <string name="password_not_same">两次密码输入不一致</string>
+    <string name="obtain_security_code">获取验证码</string>
+    <string name="reobtain_security_code">重新获取验证码</string>
+    <string name="resend_code">%d s 重新发送</string>
+    <string name="security_code_send_success">验证码已发送，请注意查收</string>
+    <string name="finish_and_login">完成并登录</string>
+    <string name="register_success">注册成功</string>
+    <string name="area_code_86">+86</string>
+    <string name="area">地区</string>
+    <string name="next_step">下一步</string>
+    <string name="phone_register">手机号注册</string>
+    <string name="security_code_sended">验证码已发送至%s</string>
+    <string name="resend_remain_time">%d秒后重新发送</string>
+
+    <string name="vip_privilege">VIP特权</string>
+    <string name="share_gift">每日分享·免费领奖</string>
+    <string name="vip_privilege_detail">VIP特权详情</string>
+    <string name="current_privilege_lever">当前VIP等级</string>
+    <string name="advanced_vip">高级VIP</string>
+    <string name="growth_value">成长值:</string>
+    <string name="vip_welfare">VIP等级福利</string>
+    <string name="vip_welfare_detail">查看特权详情</string>
+    <string name="copyright">注册即代表您已同意</string>
+    <string name="app_red_packet">安马文学的红包</string>
+
+    <!-- 主界面模块-->
+    <string name="bookrack">书架</string>
+    <string name="bookstore">书城</string>
+    <string name="rank">榜单</string>
+    <string name="forum">论坛</string>
+    <string name="my">我的</string>
+    <string name="get_image_failed">获取图片失败</string>
+    <string name="to_login">点击登陆</string>
+    <string name="no_login_record">您还没有登录记录哦</string>
+    <string name="sign_in">签到</string>
+    <string name="sign_in_count">已连续签到%d天</string>
+    <string name="sign_in_ed">已签到</string>
+    <string name="sign_in_success">签到成功</string>
+    <string name="i_know">知道了</string>
+    <string name="sign_in_award">签到成功</string>
+    <string name="sign_in_hint">每日签到领更多</string>
+    <string name="sign_in_give_welfare">随手签到送福利</string>
+    <string name="filter">筛选</string>
+    <string name="browse_history">浏览记录</string>
+    <string name="book_rack_empty">暂无记录</string>
+    <string name="find_book">去找书</string>
+    <string name="remove_from_book_rack">移出书架</string>
+    <string name="read_day">%d 天</string>
+    <string name="read_ben">%d 本</string>
+    <string name="read_chapter">%d 章</string>
+    <string name="read_hour">%d 小时</string>
+
+    <string name="everyone_search">大家都在搜</string>
+    <string name="hot_search">热门搜索</string>
+    <string name="search_history">搜索历史</string>
+    <string name="clear">清空</string>
+    <string name="clear_success">清除成功</string>
+    <string name="exit_hint">再按一次退出</string>
+    <string name="manage_book_rack">管理书架</string>
+    <string name="list_mode">列表模式</string>
+    <string name="unreaded">未读过</string>
+    <string name="tulongji">倚天屠龙记</string>
+    <string name="jinyong">金庸</string>
+
+    <!-- 书城模块-->
+    <string name="menu_book_lib">书库</string>
+    <string name="menu_xuanwu">玄幻</string>
+    <string name="menu_romance">言情</string>
+    <string name="menu_city">都市</string>
+    <string name="menu_ceo">总裁</string>
+    <string name="menu_official">官场</string>
+    <string name="menu_military">军事</string>
+    <string name="menu_immortal">仙侠</string>
+    <string name="menu_supernatural">灵异</string>
+    <string name="menu_history">历史</string>
+    <string name="menu_game">游戏</string>
+    <string name="menu_thru">穿越</string>
+    <string name="menu_ancient_words">古言</string>
+    <string name="menu_modern_words">现言</string>
+    <string name="menu_rank">排行</string>
+
+    <string name="highly_recommend">重磅推荐</string>
+    <string name="more">更多</string>
+    <string name="hot_demand_book">畅销书单</string>
+    <string name="new_book_putaway">新书上架</string>
+    <string name="hot_book">热门小说</string>
+    <string name="guess_you_like">猜你喜欢</string>
+    <string name="recommend_book">同类作品推荐</string>
+    <string name="author_zhu">%s 著</string>
+    <string name="new_user_freed_read">新用户全场好书免费畅读（剩余%d天）</string>
+
+
+    <!-- 书详情界面-->
+    <string name="book_detail">书籍详情</string>
+    <string name="author_name">作者 %s</string>
+    <string name="book_type">类别:%s</string>
+    <string name="book_stutus">状态:%s</string>
+    <string name="work_count">字数:%s</string>
+    <string name="click_count">点击:%s</string>
+    <string name="intro_content">简介：%s</string>
+    <string name="book_menu">目录</string>
+    <string name="book_mark">书签</string>
+    <string name="book_chapter_count">连载至%d章</string>
+    <string name="pay_tour">打赏</string>
+    <string name="top_up_and_pay_tour">充值并打赏</string>
+    <string name="pay_tour_history">打赏记录</string>
+    <string name="pay_tour_what">打赏了</string>
+    <string name="book_comment">书评区</string>
+    <string name="comment_user_count">%d人评论</string>
+    <string name="comment">评论 </string>
+    <string name="send_comment_success">评论发送成功</string>
+    <string name="hint_comment">在此输入评论内容 (255字以内)</string>
+    <string name="comment_empty">评论内容不可为空</string>
+    <string name="reply">回复:</string>
+    <string name="comment_detail">书评详情</string>
+    <string name="all_reply_count">全部评论 (%d)</string>
+    <string name="comment_count">%d条</string>
+    <string name="write_comment">写书评</string>
+    <string name="look_all_comment">查看全部书评</string>
+    <string name="discounts_buy">优惠购买</string>
+    <string name="start_read">开始阅读</string>
+    <string name="add_to_bookrack">加入书架</string>
+    <string name="add_to_bookrack_hint">喜欢这本书就加入书架吧</string>
+    <string name="add_bookmark">添加书签</string>
+    <string name="add_bookmark_success">书签添加成功</string>
+    <string name="added_to_bookrack">已加入书架</string>
+    <string name="add_to_bookrack_success">加入书架成功</string>
+    <string name="send_comment">发表评论</string>
+    <string name="send">发布</string>
+    <string name="reply_comment">回复评论</string>
+    <string name="hotest_comment">最热书评</string>
+    <string name="newest_comment">最新书评</string>
+    <string name="coin_short">当前闪闪币不足，请先充值。</string>
+    <string name="give_gift_success">礼物打赏成功</string>
+    <string name="gift_wall">礼物墙</string>
+    <string name="i_want_to_give_gift">我也要送礼</string>
+    <string name="gift_666">666</string>
+    <string name="gift_flowe">鲜花</string>
+    <string name="gift_knapsack">包包</string>
+    <string name="gift_diamond">钻戒</string>
+    <string name="gift_house">别墅</string>
+    <string name="gift_island">私人岛屿</string>
+    <string name="total_coin">合计:%s 闪闪币</string>
+    <string name="surplus_coin">余额:%s 闪闪币</string>
+    <string name="inverted_order">倒序</string>
+    <string name="main_body">正文卷</string>
+
+    <!-- 阅读模块-->
+    <string name="book_order">书籍订阅</string>
+    <string name="order_this_chapter">订阅本章</string>
+    <string name="order_20_chapter">后续20章</string>
+    <string name="order_100_chapter">后续100章</string>
+    <string name="order_all_chapter">后续所有章节</string>
+    <string name="account_balance_coin">账户余额:%s 闪闪币</string>
+    <string name="pay_remark">注:已购或者免费章节不会扣费</string>
+    <string name="need_cost_coin">实付:%s 闪闪币</string>
+    <string name="original_cost_coin">原价:%s </string>
+    <string name="top_up_and_buy">充值并购买</string>
+    <string name="immediately_buy">立刻购买</string>
+    <string name="book_order_success">书籍订阅成功</string>
+
+    <!-- 榜单模块-->
+    <string name="rank_week">周榜</string>
+    <string name="rank_month">月榜</string>
+    <string name="rank_all">总榜</string>
+    <string name="rank_hot_sell">畅销榜</string>
+    <string name="rank_click">点击榜</string>
+    <string name="rank_collect">收藏榜</string>
+    <string name="rank_gift">礼物榜</string>
+    <string name="rank_top_1">TOP 1</string>
+    <string name="rank_top_2">TOP 2</string>
+    <string name="rank_top_3">TOP 3</string>
+
+
+    <!-- 我的模块-->
+    <string name="top_up_center">充值中心</string>
+    <string name="top_up">充值</string>
+    <string name="pay_success">支付成功</string>
+    <string name="sure_pay">确认付款</string>
+    <string name="pay_money_amount">￥: %s</string>
+    <string name="choose_pay_method">请选择支付方式</string>
+    <string name="read_coin">闪闪币</string>
+    <string name="top_up_and_consume_history">充值消费记录</string>
+    <string name="bind_phone">绑定手机</string>
+    <string name="modify_password">修改密码</string>
+    <string name="play_tour_history">打赏记录</string>
+    <string name="my_comment">我的评论</string>
+    <string name="my_bookrack">我的书架</string>
+    <string name="about_us">关于我们</string>
+    <string name="exit_login">退出登录</string>
+    <string name="exit_suceesee">退出成功</string>
+    <string name="register_and_login">完成并登录</string>
+    <string name="my_account">我的账户</string>
+    <string name="account_security">账户安全</string>
+    <string name="help_center">帮助中心</string>
+
+    <string name="read_day_count">阅读天数</string>
+    <string name="read_book_count">看过的书</string>
+    <string name="read_page_count">翻过的章数</string>
+    <string name="read_hour_count">阅读时间</string>
+    <string name="day_count">%d天</string>
+    <string name="book_count">%d本</string>
+    <string name="page_count">%页</string>
+    <string name="hour_count">%d小时</string>
+    <string name="discount">%s 折</string>
+    <string name="today_read_count">今日已读%d分钟</string>
+    <string name="account_balance">闪闪币</string>
+    <string name="gift_balance">赠币</string>
+    <string name="current_gift_coin">当前赠币</string>
+    <string name="version_code">版本:%s</string>
+    <string name="version_update">版本更新</string>
+    <string name="update_immediately">立刻更新</string>
+    <string name="postpone_update">稍后再说</string>
+    <string name="newest_version">当前已是最新版本</string>
+    <string name="new_version_name">发现新版本: %s</string>
+    <string name="downloading_new_version">下载新版本</string>
+    <string name="downloaded_progress">已下载: %s</string>
+    <string name="vipcn_com">公众号:安马文学</string>
+    <string name="motto">以文载德，阅读无疆</string>
+    <string name="declare_user_agreement1">注册安马文学即表示您同意</string>
+    <string name="user_agreement">《用户服务协议》</string>
+
+
+    <string name="top_up_history">充值记录</string>
+    <string name="consume_history">消费记录</string>
+    <string name="current_balance">当前余额:%s 闪闪币</string>
+    <string name="pay_amount">支付金额:</string>
+    <string name="top_up_immediately">立刻充值</string>
+    <string name="immediate_pay">立刻支付</string>
+    <string name="cancel_pay">您取消了购买</string>
+
+    <string name="yuan">%s 元</string>
+    <string name="yuan_6">6元</string>
+    <string name="yuan_10">10元</string>
+    <string name="yuan_30">30元</string>
+    <string name="yuan_50">50元</string>
+    <string name="yuan_108">108元</string>
+    <string name="yuan_100">100元</string>
+    <string name="yuan_188">188元</string>
+    <string name="yuan_200">200元</string>
+    <string name="yuan_288">288元</string>
+
+    <string name="my_coin">我的赠币</string>
+    <string name="coin_60">60闪闪币</string>
+    <string name="coin_66">66闪闪币</string>
+    <string name="coin_188">188闪闪币</string>
+    <string name="coin_300">300闪闪币</string>
+    <string name="coin_500">500闪闪币</string>
+    <string name="coin_888">888闪闪币</string>
+    <string name="coin_1000">1000闪闪币</string>
+    <string name="coin_1080">1080闪闪币</string>
+    <string name="coin_1880">1880闪闪币</string>
+    <string name="coin_1888">1888闪闪币</string>
+    <string name="coin_2880">2880闪闪币</string>
+    <string name="coin_2888">2888闪闪币</string>
+    <string name="coin_3000">3000闪闪币</string>
+    <string name="coin_10000">10000闪闪币</string>
+    <string name="coin_18888">18888闪闪币</string>
+    <string name="coin_20000">20000闪闪币</string>
+
+    <string name="ranking">排行</string>
+    <string name="active_demand_rank">畅销榜</string>
+    <string name="click_rank">点击榜</string>
+    <string name="collect_rank">收藏榜</string>
+    <string name="gift_rank">礼物榜</string>
+
+
+    <string name="girl">女生</string>
+    <string name="boy">男生</string>
+    <string name="listen">听书</string>
+    <string name="total_rank">总榜</string>
+    <string name="month_rank">月榜</string>
+    <string name="week_rank">周榜</string>
+
+    <string name="sign_in_immediately">立刻签到</string>
+    <string name="sign_in_info">连续签到/天</string>
+    <string name="week_sign_in_count">本周已签到 %d 天</string>
+    <string name="unsign_in">未签</string>
+    <string name="signed_in">已签</string>
+    <string name="append_sign_in">补签</string>
+
+    <string name="filter_book">筛选书架作品</string>
+    <string name="all">全部</string>
+    <string name="status">状态</string>
+    <string name="writing">连载</string>
+    <string name="writed">完本</string>
+    <string name="readed">已读</string>
+    <string name="unread">未读</string>
+    <string name="unread2">未读过</string>
+    <string name="un_listen">未听过</string>
+    <string name="read_charpter_num">看到第 %d 章</string>
+    <string name="listen_chapter_num">听到第 %d 章</string>
+    <string name="more_then_fifty_unread">超过50章未读</string>
+    <string name="more_then_one_hundred_unread">超过100章未读</string>
+    <string name="type">类型</string>
+    <string name="suspense_type">悬疑灵异</string>
+    <string name="romance_type">浪漫言情</string>
+    <string name="goudet_type">古代言情</string>
+
+
+    <string name="book_library">书库</string>
+    <string name="default_type">默认</string>
+    <string name="less_than_20_wang_words">20万字以下</string>
+    <string name="between_20_andr_100_wang_words">20-100万字</string>
+    <string name="more_than_100_wan_words">100万字以上</string>
+    <string name="words">字数</string>
+    <string name="click">点击</string>
+    <string name="collect">收藏</string>
+    <string name="lian_zhai_ing">连载中</string>
+    <string name="wang_jie">完结</string>
+    <string name="add_tag">添加标签</string>
+    <string name="sign_in_obtain_welfare">随手签到领福利~</string>
+
+
+    <!-- 阅读模块-->
+    <string name="previous_chapter">上一章</string>
+    <string name="next_chapter">下一章</string>
+    <string name="night_mode">夜间</string>
+    <string name="sun_mode">日间</string>
+    <string name="update_notify">更新通知</string>
+    <string name="add_mark">添加标签</string>
+    <string name="share">分享</string>
+    <string name="share_success">分享成功</string>
+    <string name="share_failed">分享失败</string>
+    <string name="finish_hint_0">未完待续</string>
+    <string name="finish_hint_1">欢迎吐槽、送礼物支持作者</string>
+    <string name="finish_hint_2">敬请期待明日更新</string>
+    <string name="goto_book_rack">返回书架</string>
+
+    <string name="contents">目录</string>
+    <string name="setting">设置</string>
+    <string name="modify_success">修改成功</string>
+    <string name="account_safety">账户安全</string>
+    <string name="account">账户</string>
+    <string name="personal_data">个人资料</string>
+    <string name="message_notification">消息提醒</string>
+    <string name="clear_cache">清理缓存</string>
+    <string name="help_and_feekback">帮助与反馈</string>
+    <string name="about_me">关于安马文学</string>
+    <string name="suggest_feedback">意见反馈</string>
+    <string name="hint_suggest_feedback">在此输入反馈内容(255个字以内)</string>
+    <string name="feedback_empty">请输入反馈内容</string>
+    <string name="feedback_success">您反馈内容我们已经接收，我们会及时处理。</string>
+    <string name="hint_personal_intro">添加个人介绍(255个字以内)</string>
+    <string name="intro_empty">请输入介绍内容</string>
+    <string name="nickname_empty">请输入昵称</string>
+    <string name="nickname_short">昵称不能少于6个字符</string>
+    <string name="nickname">昵称</string>
+    <string name="commit">提交</string>
+    <string name="issue_feedback">反馈</string>
+    <string name="contact_customer">联系客服</string>
+    <string name="binded">已绑定</string>
+    <string name="can_change_password">对不起，第三方登录用户，不能修改密码</string>
+    <string name="phone_binded">已绑定手机</string>
+    <string name="unbind">未绑定</string>
+    <string name="head_icon">头像</string>
+    <string name="nick_name">昵称</string>
+    <string name="sex">性别</string>
+    <string name="birthday">生日</string>
+    <string name="region">地区</string>
+    <string name="picked_region">已选地区</string>
+    <string name="personal_profile">个人资料</string>
+    <string name="personal_intro">个人简介</string>
+    <string name="save">保存</string>
+    <string name="hint_nick_name1">1，昵称由中、英文、数字或符合组成</string>
+    <string name="hint_nick_name2">2，不能使用敏感词汇和非法昵称</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="hint_personal_profile">添加个人简历(255个字以内)</string>
+    <string name="change_font">更换字体</string>
+    <string name="total_chapter">共( %d )章</string>
+    <string name="message_center">消息中心</string>
+    <string name="update_remind">更新提醒</string>
+    <string name="system_remind">系统通知</string>
+
+
+    <!-- wechat-->
+    <string name="not_wechat_app">请先安装微信应用</string>
+    <string name="wechat_version_unsupport">请先更新微信应用</string>
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="errcode_unknown">发送返回</string>
+
+
+    <string name="hint_first_page">当前已经是第一页了</string>
+    <string name="hint_last_page">当前已经是最后页了</string>
+    <string name="book_loading">数据加载中，请稍等……</string>
+    <string name="loading_next_chapter">正在加载下一章数据</string>
+    <string name="loading_before_chapter">正在加载上一章数据</string>
+    <string name="sign_rule">签到规则</string>
+    <string name="sign_intro">1.每次签到都将获得不同的经验值或闪闪币奖励； \n
+签到以七天为一周期，周期内连续签到， \n
+奖励越丰厚：  \n
+签到1天..........5成长值  \n
+签到2天..........10成长值  \n
+签到3天..........10闪闪币  \n
+签到4天..........15成长值  \n
+签到5天..........20成长值  \n
+签到6天..........30成长值  \n
+签到7天..........20闪闪币   \n
+2.签到奖励遵循以上规则，完成一个周期，再重新 \n
+开始下一个周期。   \n
+3.签到奖励货币为免费币，功能等同于闪闪币， \n
+优先消耗免费币。   \n
+4.本次活动最终解释权归安马文学所有。</string>
+    <string name="title_activity_gift_coin">GiftCoinActivity</string>
+    <string name="aaaa"> 东汉建安五年，曹操与袁绍在官渡展开激战斗，两军实力相差悬殊，袁军数倍于曹军曹操部将大多认为袁军不可战胜。但曹操最终以少胜多，大败袁军。袁绍弃军逃跑，全部的辎重物资、图册兵藏被曹军缴获。 在清点战利品时，曹操的一名心腹发现了许多书信。这名心腹拆开其中一封，看了几眼，立刻脸色大变。他把所有书信收齐封好然后抱着信件去向曹操汇报：“主公，这些都是袁绍与人来往的密函！”曹操接过信件，拆开看过几封后，对心腹说：“你去把这些信都烧了吧。”“烧掉？主公，您不该照着书信把这些叛徒全部抓起来吗？”心腹惊疑道。曹操摇摇头：“当初，袁绍兵力远胜于我，连我自己都觉得不能自保，更何况是他们。与袁绍勾结只是他们不得已的选择啊。” 曹操接过信件，拆开看过几封后，对心腹说：“你去把这些信都烧了吧。”“烧掉？主公，您不该照着书信把这些叛徒全部抓起来吗？”心腹惊疑道。曹操摇摇头：“当初，袁绍兵力远胜于我，连我自己都觉得不能自保，更何况是他们。 曹操烧信原来，这些信件都是在许都的官员和曹操军中的部将写给袁绍的，其中不乏示好投诚之语。曹操命人当众把信件全部焚烧。那些私通袁绍的部将，原本惊慌不定，见曹操此举，惭愧不已，同时也愈加感激，军中士气更盛。 曹操趁势进击，冀州各郡纷纷献城投降。曹操实力大为增强，为此后统一北方奠定了基础。 </string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_boy_page">BoyPageActivity</string>
+    <string name="with_draw_info">
+                            1、提现需先绑定微信 \n\n
+2、提现申请将在1-3小时内审批到账；如遇高峰期，可能
+延迟到账，烦请耐心等待\n\n
+3、请及时关注提现记录查看状态\n\n
+4、提现到账查询：微信→我→钱包→零钱→零钱明细，如
+果有名称为“企业付款：安马文学提现成功”的数据，即提
+现到账成功！\n\n
+                        </string>
+    <string name="title_activity_batch_manager">BatchManagerActivity</string>
+
+    <!-- 作者平台 -->
+    <string name="author_platform">作家平台</string>
+    <string name="author_tab_home">首页</string>
+    <string name="author_tab_writing">写作</string>
+    <string name="author_tab_statistics">统计</string>
+    <string name="author_tab_me">我的</string>
+
+    <string name="file_path">存儲卡:%1$s</string>
+    <string name="file_sub_count">%1$d 项</string>
+
+    <string name="file_add_shelf">加入书架</string>
+    <string name="file_add_shelves">加入书架(%1$d)</string>
+
+    <string name="read_setting_directory">目录</string>
+    <string name="read_setting_night">夜间</string>
+    <string name="read_setting_day">日间</string>
+    <string name="read_setting_pagemode">翻页</string>
+    <string name="read_setting_set">设置</string>
+    <string name="read_setting_pre">上一章</string>
+    <string name="read_setting_next">下一章</string>
+
+    <string name="page_mode_simulation">仿真</string>
+    <string name="page_mode_cover">覆盖</string>
+    <string name="page_mode_slide">滑动</string>
+    <string name="page_mode_none">无</string>
+
+    <string name="font_default">系统默认</string>
+    <string name="font_qihei">羿创旗黑</string>
+    <string name="font_xinshou">新宋体</string>
+    <string name="font_wawa">娃娃体</string>
+    <string name="font_fzxinghei">行黑</string>
+    <string name="font_fzkatong">卡通</string>
+    <string name="font_bysong">繁宋体</string>
+
+    <string name="setting_system">系统</string>
+    <string name="setting_dark">暗</string>
+    <string name="setting_bright">亮</string>
+    <string name="setting_add">A+</string>
+    <string name="setting_subtract">A-</string>
+    <string name="setting_default">默认</string>
+
+    <string name="action_add_bookmark">添加书签</string>
+    <string name="action_read_book">读书</string>
+
+    <string name="file_add_succeed">成功添加%1$d书本</string>
+
+    <string name="wifi_upload_file_total">已上传:%d本书;可以继续上传</string>
+
+    <!--- 听书 -->
+    <string name="listen_chapter_total">共%d集</string>
+</resources>

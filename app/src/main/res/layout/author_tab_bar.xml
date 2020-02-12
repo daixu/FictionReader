@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <com.shangame.fiction.widget.TabItemView
+        android:id="@+id/tab_home"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        app:normal_src="@drawable/tab_author_home_n"
+        app:selected="true"
+        app:selected_src="@drawable/tab_author_home_s"
+        app:show_type="red_dot"
+        app:text="@string/author_tab_home"
+        app:text_normal_color="#7C7C7C"
+        app:text_select_color="#5094F2" />
+
+    <com.shangame.fiction.widget.TabItemView
+        android:id="@+id/tab_writing"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        app:normal_src="@drawable/tab_author_writing_n"
+        app:selected_src="@drawable/tab_author_writing_s"
+        app:show_type="red_dot"
+        app:text="@string/author_tab_writing"
+        app:text_normal_color="#7C7C7C"
+        app:text_select_color="#5094F2" />
+
+    <com.shangame.fiction.widget.TabItemView
+        android:id="@+id/tab_statistics"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        app:normal_src="@drawable/tab_author_statistics_n"
+        app:selected_src="@drawable/tab_author_statistics_s"
+        app:show_type="red_dot"
+        app:text="@string/author_tab_statistics"
+        app:text_normal_color="#7C7C7C"
+        app:text_select_color="#5094F2" />
+
+    <com.shangame.fiction.widget.TabItemView
+        android:id="@+id/tab_me"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        app:normal_src="@drawable/tab_author_me_n"
+        app:selected_src="@drawable/tab_author_me_s"
+        app:show_type="red_dot"
+        app:text="@string/author_tab_me"
+        app:text_normal_color="#7C7C7C"
+        app:text_select_color="#5094F2" />
+</LinearLayout>

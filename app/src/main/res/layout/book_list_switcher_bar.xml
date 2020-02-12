@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/recommendLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/rect_white_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/bookInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/ivReco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/recommd_book" />
+
+        <TextView
+            android:id="@+id/tvBookName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/ivReco"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/ivRecomBook"
+            android:text="隐婚密爱：总裁的温柔娇妻"
+            android:textColor="#FF8C8D8D"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBookIntro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvBookName"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/ivRecomBook"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="隐婚密爱：总裁的温柔娇妻"
+            android:textColor="#FFA2A9B2" />
+
+        <ImageView
+            android:id="@+id/ivRecomBook"
+            android:layout_width="55dp"
+            android:layout_height="73dp"
+            android:layout_alignParentRight="true"
+            android:maxLines="1"
+            android:src="@drawable/default_cover" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/public_line_horizontal" />
+
+    <com.shangame.fiction.widget.SmartViewSwitcher
+        android:id="@+id/smartViewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/sign_in_reminder" />
+
+        <include layout="@layout/new_user_free_read_reminder" />
+
+    </com.shangame.fiction.widget.SmartViewSwitcher>
+</LinearLayout>
+

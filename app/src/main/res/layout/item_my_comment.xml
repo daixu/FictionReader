@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp">
+
+    <ImageView
+        android:id="@+id/image_avatar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/default_head" />
+
+    <TextView
+        android:id="@+id/text_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/image_avatar"
+        android:layout_toRightOf="@+id/image_avatar"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="小明"
+        android:textColor="#ff333333"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/text_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_user_name"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/image_avatar"
+        android:layout_toRightOf="@+id/image_avatar"
+        android:text="好像，作者再接再厉，加油，加油，赞，赞，赞，赞……加油，加油，赞，赞，赞，赞加油，加油，赞，赞，赞，赞"
+        android:textColor="#ff505050"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/text_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_comment"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/image_avatar"
+        android:layout_toRightOf="@+id/image_avatar"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:text="2018年8月1日"
+        android:textColor="#ff848a95"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/text_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_comment"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_toStartOf="@+id/text_comment_count"
+        android:layout_toLeftOf="@+id/text_comment_count"
+        android:drawableStart="@drawable/like_n"
+        android:drawableLeft="@drawable/like_n"
+        android:drawablePadding="5dp"
+        android:text="0"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <TextView
+        android:id="@+id/text_comment_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_comment"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:drawableStart="@drawable/comment_icon"
+        android:drawableLeft="@drawable/comment_icon"
+        android:drawablePadding="5dp"
+        android:text="0"
+        android:textSize="@dimen/txt_size_h2" />
+
+    <RelativeLayout
+        android:id="@+id/layout_book_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_time"
+        android:layout_marginTop="16dp"
+        android:layout_toEndOf="@+id/image_avatar"
+        android:layout_toRightOf="@+id/image_avatar"
+        android:background="#F4F4F4"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/image_cover"
+            android:layout_width="60dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/default_cover" />
+
+        <TextView
+            android:id="@+id/text_book_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/image_cover"
+            android:layout_toRightOf="@+id/image_cover"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="小明"
+            android:textColor="#ff404046"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_author_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_book_name"
+            android:layout_marginTop="14dp"
+            android:layout_toEndOf="@+id/image_cover"
+            android:layout_toRightOf="@+id/image_cover"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="默默笙歌"
+            android:textColor="#ffb5b4c3"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/layout_book_info"
+        android:layout_marginTop="15dp"
+        android:layout_toEndOf="@id/image_avatar"
+        android:layout_toRightOf="@id/image_avatar"
+        android:background="#E7E7E7" />
+</RelativeLayout>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/radioGroup"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/popup_top_right_bg"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tvRankWeek"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:checked="true"
+            android:drawableLeft="@drawable/checked"
+            android:drawablePadding="10dp"
+            android:textColor="@color/secondary_text"
+            android:gravity="right"
+            android:padding="10dp"
+            android:text="@string/rank_week" />
+
+        <include layout="@layout/public_line_horizontal" />
+
+        <TextView
+            android:id="@+id/tvRankMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_gravity="right"
+            android:textColor="@color/secondary_text"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:button="@drawable/radio_rank_style"
+            android:padding="10dp"
+            android:text="@string/rank_month" />
+
+        <include layout="@layout/public_line_horizontal" />
+
+        <TextView
+            android:id="@+id/tvRankAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="@color/secondary_text"
+            android:layout_gravity="right"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="30dp"
+            android:button="@drawable/radio_rank_style"
+            android:padding="10dp"
+            android:text="@string/rank_all" />
+
+    </LinearLayout>
+
+</LinearLayout>

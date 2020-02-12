@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/ivBookCover"
+        android:layout_width="60dp"
+        android:layout_height="80dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/default_cover" />
+
+    <TextView
+        android:id="@+id/ivBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivBookCover"
+        android:layout_toEndOf="@+id/ivBookCover"
+        android:textSize="@dimen/txt_size_h4"
+        android:textColor="@color/primary_text"
+        android:layout_marginTop="16dp"
+        android:text="倚天屠龙" />
+
+    <TextView
+        android:id="@+id/tvChapter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivBookCover"
+        android:layout_toEndOf="@+id/ivBookCover"
+        android:layout_below="@+id/ivBookName"
+        android:layout_marginTop="10dp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/ivBrowseTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ivBookCover"
+        android:layout_toEndOf="@+id/ivBookCover"
+        android:layout_below="@+id/tvChapter"
+        android:layout_marginTop="10dp"
+        android:text="8月10日 18:30" />
+
+    <TextView
+        android:id="@+id/tvAddToBookRack"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_toLeftOf="@+id/ivDelete"
+        android:layout_toStartOf="@+id/ivDelete"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:drawableLeft="@drawable/add_theme_color"
+        android:drawableStart="@drawable/add_theme_color"
+        android:drawablePadding="5dp"
+        android:layout_below="@+id/ivBookName"
+        android:text="@string/bookrack"
+        android:background="@drawable/border_theme_color_bg" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/border_gray_bg"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/app_name"
+        android:layout_marginTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/ivBookName"
+        android:src="@drawable/delete"
+        android:text="@string/bookrack" />
+</RelativeLayout>

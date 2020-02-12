@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/half_transparent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottomLayout"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp">
+
+        <LinearLayout
+            android:id="@+id/previewLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F9F8F4"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_margin="10dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/share_logo" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/rect_white_bg">
+
+                <ImageView
+                    android:id="@+id/ivCover"
+                    android:layout_width="@dimen/cover_width_h1"
+                    android:layout_height="@dimen/cover_height_h1"
+                    android:layout_margin="10dp"
+                    android:src="@drawable/default_cover" />
+
+                <TextView
+                    android:id="@+id/tvBookName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_toEndOf="@+id/ivCover"
+                    android:layout_toRightOf="@+id/ivCover"
+                    android:text="AAAA"
+                    android:textColor="#505050"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvAuthorName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvBookName"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/ivCover"
+                    android:layout_toRightOf="@+id/ivCover"
+                    android:text="作者：安一宁"
+                    android:textColor="#8B8A8F" />
+
+                <TextView
+                    android:id="@+id/tvIntro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tvAuthorName"
+                    android:layout_marginTop="10dp"
+                    android:layout_toEndOf="@+id/ivCover"
+                    android:layout_toRightOf="@+id/ivCover"
+                    android:ellipsize="end"
+                    android:maxLines="3"
+                    android:text=" 游灵儿难得重生，竟然被污蔑引来各方 成怪，差点魂归天外。一双异瞳，引来各方觊 觎。那又如何？她游灵儿神挡杀佛佛阻废... "
+                    android:textColor="#8B8A8F" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvChapterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:maxLines="1"
+                android:text="第一章 妖怪"
+                android:textColor="#505050"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:lineSpacingExtra="16sp"
+                android:text="@string/aaaa"
+                android:textColor="#505050"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="更多内容下载安马文学APP"
+                android:textColor="#CAB69D"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/share_qr" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="识别二维码下载「安马文学」"
+                android:textColor="#8B8A8F"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="全站海量小说免费阅读，从此告别书荒！"
+                android:textColor="#8B8A8F"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rect_gray_bg"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="每日首次分享， 即可获得赠币" />
+
+            <TextView
+                android:id="@+id/tvShare"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:drawableTop="@drawable/share_share"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="@string/share" />
+
+            <TextView
+                android:id="@+id/tvDownload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:drawableTop="@drawable/share_download"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="保存图片" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@drawable/public_line_horizontal" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/cancel"
+            android:textColor="#3C3F46"
+            android:textSize="18sp" />
+    </LinearLayout>
+</RelativeLayout>

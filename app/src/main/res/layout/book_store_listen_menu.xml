@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp">
+
+    <TextView
+        android:id="@+id/menu_classify_listen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_sort"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h2"
+        android:gravity="center"
+        android:text="分类" />
+
+    <TextView
+        android:id="@+id/menu_rank_listen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_rank"
+        android:textSize="@dimen/txt_size_h2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/primary_text"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="排行" />
+
+    <TextView
+        android:id="@+id/menu_complete_listen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/icon_full"
+        android:textSize="@dimen/txt_size_h2"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/primary_text"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="全本" />
+
+    <TextView
+        android:id="@+id/menu_end_listen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size_h2"
+        android:drawableTop="@drawable/icon_end"
+        android:textColor="#666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="完结" />
+
+    <TextView
+        android:id="@+id/menu_free_listen"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/txt_size_h2"
+        android:drawableTop="@drawable/icon_free_listen"
+        android:textColor="#666666"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:text="免费" />
+</LinearLayout>

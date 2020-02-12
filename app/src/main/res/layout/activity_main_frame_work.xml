@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mainTabLayout" />
+
+    <com.shangame.fiction.widget.CircleRotateImageView
+        android:id="@+id/image_player_cover"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_above="@+id/mainTabLayout"
+        android:contentDescription="@string/app_name"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:src="@drawable/icon_player_s" />
+
+    <LinearLayout
+        android:id="@+id/mainTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@drawable/public_line_horizontal" />
+
+        <include
+            layout="@layout/main_tab_bar"
+            android:layout_width="match_parent"
+            android:clipChildren="false"
+            android:layout_height="60dp" />
+    </LinearLayout>
+</RelativeLayout>

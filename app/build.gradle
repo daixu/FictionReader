@@ -1,0 +1,207 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.COMPILE_SDK_VERSION
+    defaultConfig {
+        applicationId "com.shangame.fiction"
+
+        minSdkVersion rootProject.MIN_SDK_VERSION
+        targetSdkVersion rootProject.TARGET_SDK_VERSION
+        versionCode rootProject.VERSION_CODE
+        versionName rootProject.VERSION_NAME
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
+        resConfigs "zh"
+        ndk {
+            abiFilters "armeabi", "x86", 'armeabi-v7a'
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            zipAlignEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+        }
+    }
+
+    useLibrary 'org.apache.http.legacy'
+
+    lintOptions {
+        //忽略Lint错误
+        abortOnError false
+    }
+
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+
+    signingConfigs {//签名
+        release {
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASSWORD
+        }
+        debug {
+//            storeFile file('../debug.keystore')
+            storeFile file('../anmawenxue.jks')
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASSWORD
+            storePassword STORE_PASSWORD
+        }
+
+        flavorDimensions("zh")
+
+        android {
+            productFlavors {
+                anma {
+                    buildConfigField "int", "CHANNEL_ID", '1001'
+                }
+                baidu {
+                    buildConfigField "int", "CHANNEL_ID", '11003'
+                }
+                app360 {
+                    buildConfigField "int", "CHANNEL_ID", '11004'
+                }
+                huawei {
+                    buildConfigField "int", "CHANNEL_ID", '11005'
+                }
+                tencent {
+                    buildConfigField "int", "CHANNEL_ID", '11006'
+                }
+                oppo {
+                    buildConfigField "int", "CHANNEL_ID", '11007'
+                }
+                meizu {
+                    buildConfigField "int", "CHANNEL_ID", '11008'
+                }
+                xiaomi {
+                    buildConfigField "int", "CHANNEL_ID", '11009'
+                }
+                vivo {
+                    buildConfigField "int", "CHANNEL_ID", '11010'
+                }
+                shanshan {
+                    buildConfigField "int", "CHANNEL_ID", '11012'
+                }
+                toutiao {
+                    buildConfigField "int", "CHANNEL_ID", '11013'
+                }
+                sms {
+                    buildConfigField "int", "CHANNEL_ID", '11014'
+                }
+            }
+
+            productFlavors.all {
+                flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+            }
+        }
+    }
+}
+
+greendao {
+    schemaVersion 12 //数据库版本号
+    daoPackage 'com.shangame.fiction.storage.db'// 设置DaoMaster、DaoSession、Dao 包名
+    targetGenDir 'src/main/java'//设置DaoMaster、DaoSession、Dao目录
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation "com.android.support:appcompat-v7:$rootProject.SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:design:$rootProject.SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:recyclerview-v7:$rootProject.SUPPORT_LIBRARY_VERSION"
+    implementation "com.android.support:cardview-v7:$rootProject.SUPPORT_LIBRARY_VERSION"
+    implementation 'com.android.support:support-v4:28.0.0'
+
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.6'
+
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    implementation 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-14'
+
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'net.zetetic:android-database-sqlcipher:3.5.6'
+
+    implementation 'io.github.yuweiguocn:GreenDaoUpgradeHelper:v2.2.1'
+
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.13'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
+
+    implementation 'com.trello.rxlifecycle2:rxlifecycle:2.2.2'
+    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.2.2'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.1'
+
+    implementation 'id.zelory:compressor:2.1.0'
+    implementation 'com.ycuwq.widgets:datepicker:1.2.0'
+
+    implementation 'com.umeng.umsdk:analytics:8.0.0'
+    implementation 'com.umeng.umsdk:common:2.0.0'
+
+    implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
+
+    implementation 'com.lxj:xpopup:1.8.10'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.50'
+    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
+
+    implementation 'com.github.vipulasri:timelineview:1.1.2'
+
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+    implementation 'com.alibaba:arouter-annotation:1.0.6'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.bigkoo:convenientbanner:2.0.5'
+    implementation(name: 'open_ad_sdk', ext: 'aar')
+    implementation files('libs/juniversalchardet-1.0.3.jar')
+
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
+    implementation project(':notchtools')
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:background="#fff4f4f4">
+
+    <TextView
+        android:id="@+id/tvVolumeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:textColor="@color/primary_text"
+        android:text="第一卷:    雪山飞狐"/>
+
+    <TextView
+        android:id="@+id/tvVolumeSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_text"
+        android:layout_marginLeft="16dp"
+        android:layout_centerVertical="true"
+        android:text="@string/total_chapter"
+        />
+
+</LinearLayout>

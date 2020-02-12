@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/ivCover"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/default_cover" />
+
+    <TextView
+        android:id="@+id/ivRankTop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/ivCover"
+        android:text="TOP 1"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_toRightOf="@+id/ivRankTop"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="神雕侠女"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/txt_size_h4"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvBookAuthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBookName"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="6dp"
+        android:layout_toRightOf="@+id/ivCover"
+        android:maxLines="1"
+        android:text="金庸"
+        android:textColor="@color/author_color"
+        android:textSize="@dimen/txt_size_h3" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBookAuthor"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/ivCover"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingRight="10dp"
+        android:text=""
+        android:textColor="@color/secondary_text" />
+
+    <include
+        layout="@layout/public_line_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/ivCover"
+        android:layout_marginTop="10dp" />
+</RelativeLayout>

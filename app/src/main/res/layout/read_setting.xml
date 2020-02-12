@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/readSettingLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:background="@color/read_setting_bg"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/beforeChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/previous_chapter"
+            android:textColor="#999999" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:max="100"
+            android:thumb="@drawable/circle_pink" />
+
+        <TextView
+            android:id="@+id/nextChapter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="@string/next_chapter"
+            android:textColor="#999999" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TextView
+            android:id="@+id/tvMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableTop="@drawable/read_menu"
+            android:drawablePadding="5dp"
+            android:padding="16dp"
+            android:text="@string/contents"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/tvDayMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@drawable/moon"
+            android:drawablePadding="5dp"
+            android:padding="16dp"
+            android:text="@string/night_mode"
+            android:textColor="#999999" />
+
+        <TextView
+            android:id="@+id/tvFontSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:drawableTop="@drawable/font"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/setting"
+            android:textColor="#999999" />
+    </RelativeLayout>
+
+</LinearLayout>

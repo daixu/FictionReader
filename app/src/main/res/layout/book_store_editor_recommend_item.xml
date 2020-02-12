@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    >
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.shangame.fiction.widget.ShadowLayout
+                    android:id="@+id/ivCoverLayout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:containerDeltaLength="10dp"
+                    app:containerShadowColor="#cfcfcf"
+                    app:containerShadowRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/ivCover1"
+                        android:layout_width="@dimen/cover_width_h3"
+                        android:layout_height="@dimen/cover_height_h3"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_cover" />
+                </com.shangame.fiction.widget.ShadowLayout>
+
+                <TextView
+                    android:id="@+id/tvBookName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:text="神雕侠女"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/txt_size_h3"
+                    />
+
+                <TextView
+                    android:id="@+id/tvBookAuthor1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="金庸"
+                    android:textColor="@color/author_color"
+                    android:textSize="@dimen/txt_size_h2" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.shangame.fiction.widget.ShadowLayout
+                    android:id="@+id/ivCoverLayout2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:containerDeltaLength="10dp"
+                    app:containerShadowColor="#cfcfcf"
+                    app:containerShadowRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/ivCover2"
+                        android:layout_width="@dimen/cover_width_h3"
+                        android:layout_height="@dimen/cover_height_h3"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_cover" />
+                </com.shangame.fiction.widget.ShadowLayout>
+
+                <TextView
+                    android:id="@+id/tvBookName2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:text="神雕侠女"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/txt_size_h3"
+                    />
+
+                <TextView
+                    android:id="@+id/tvBookAuthor2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="金庸"
+                    android:textColor="@color/author_color"
+                    android:textSize="@dimen/txt_size_h2" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.shangame.fiction.widget.ShadowLayout
+                    android:id="@+id/ivCoverLayout3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:containerDeltaLength="10dp"
+                    app:containerShadowColor="#cfcfcf"
+                    app:containerShadowRadius="5dp">
+
+                    <ImageView
+                        android:id="@+id/ivCover3"
+                        android:layout_width="@dimen/cover_width_h3"
+                        android:layout_height="@dimen/cover_height_h3"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/default_cover" />
+                </com.shangame.fiction.widget.ShadowLayout>
+
+                <TextView
+                    android:id="@+id/tvBookName3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:text="神雕侠女"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/txt_size_h3"
+                    />
+
+                <TextView
+                    android:id="@+id/tvBookAuthor3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text="金庸"
+                    android:textColor="@color/author_color"
+                    android:textSize="@dimen/txt_size_h2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:src="@drawable/hot"/>
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>
+
+
+

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/ivPublicBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="10dp"
+        android:src="@drawable/back_white" />
+
+
+    <TextView
+        android:id="@+id/tvPublicTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="任务中心"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_size" />
+
+    <TextView
+        android:id="@+id/tvRule"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_marginRight="16dp"
+        android:gravity="center"
+        android:text="规则"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_size" />
+
+
+</FrameLayout>

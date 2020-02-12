@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    >
+
+        <TextView
+            android:id="@+id/tvMustReadTitleName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:textColor="@color/primary_text"
+            android:layout_centerVertical="true"
+            android:textStyle="bold"
+            android:drawablePadding="5dp"
+            android:textSize="@dimen/txt_size_h5"
+            android:text="必读"/>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mustReadRecyclerView"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:nestedScrollingEnabled="false"
+        />
+
+</LinearLayout>

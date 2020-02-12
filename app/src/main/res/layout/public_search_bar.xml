@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_toLeftOf="@+id/tvSearchCancel"
+        >
+
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:background="@drawable/search_bg"
+            android:layout_toLeftOf="@+id/tvCancel"
+            android:imeOptions="actionSearch"
+            android:paddingLeft="36dp"
+            android:gravity="center_vertical|left"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/search_icon"
+            android:layout_marginLeft="16dp"
+            android:layout_gravity="center_vertical|left"/>
+
+        <ImageView
+            android:id="@+id/ivSearchDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/clear_icon"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="center_vertical|right"/>
+
+    </FrameLayout>
+
+
+
+    <TextView
+        android:id="@+id/tvSearchCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:textSize="@dimen/txt_size_h4"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/cancel"/>
+
+</RelativeLayout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    >
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvCoinCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#DEDEDE"
+            android:textSize="23dp"
+            android:text="20"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#DEDEDE"
+            android:text="@string/gift_balance"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/dot2"
+            android:textColor="#DEDEDE"
+            android:drawablePadding="10dp"
+            android:text="签到奖励"
+            android:textSize="@dimen/txt_size_h2"
+            />
+        <TextView
+            android:id="@+id/tv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/dot2"
+            android:textColor="#DEDEDE"
+            android:layout_marginTop="5dp"
+            android:drawablePadding="10dp"
+            android:textSize="@dimen/txt_size_h2"
+            android:text="签到奖励"
+            />
+        <TextView
+            android:id="@+id/tv3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#DEDEDE"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/dot2"
+            android:textSize="@dimen/txt_size_h2"
+            android:drawablePadding="10dp"
+            android:text="签到奖励"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/due"/>
+
+
+</LinearLayout>
