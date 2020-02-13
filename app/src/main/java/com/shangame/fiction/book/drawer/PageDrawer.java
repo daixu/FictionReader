@@ -215,11 +215,11 @@ public class PageDrawer implements Drawer {
         // 画广告背景
         final Bitmap defaultBg = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ad_bg);
         int bgHeight = (mHeight / 4) - 80;
-        mCanvas.drawBitmap(defaultBg, 0, bgHeight, contentPaint);
+        mCanvas.drawBitmap(defaultBg, 0, bgHeight, adPaint);
 
         // 画广告标题文字
         int titleHeight = mHeight / 4;
-        mCanvas.drawText(ttFeedAd.getTitle(), 30, titleHeight, contentPaint);
+        mCanvas.drawText(ttFeedAd.getTitle(), 30, titleHeight, adPaint);
         int width = adBitmap.getWidth();
         int height = adBitmap.getHeight();
 
@@ -227,7 +227,7 @@ public class PageDrawer implements Drawer {
         int btnHeight = bgHeight + defaultBg.getHeight();
         final Bitmap noAdBtn = BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_no_ad);
         int textWidth = (mWidth - noAdBtn.getWidth()) / 2;
-        mCanvas.drawBitmap(noAdBtn, textWidth, btnHeight + 100, contentPaint);
+        mCanvas.drawBitmap(noAdBtn, textWidth, btnHeight + 100, adPaint);
         // mCanvas.drawText("看视频免15分钟广告", textWidth, y + 350, contentPaint);
 
         int right = textWidth + noAdBtn.getWidth();
@@ -242,10 +242,10 @@ public class PageDrawer implements Drawer {
         if (desc.length() > 20) {
             desc = desc.substring(0, 15) + "...";
         }
-        mCanvas.drawText(desc, 30, btnHeight - 30, contentPaint);
+        mCanvas.drawText(desc, 30, btnHeight - 30, adPaint);
 
         // 画广告图片
-        mCanvas.drawBitmap(adBitmap, 40, titleHeight + 30, contentPaint);
+        mCanvas.drawBitmap(adBitmap, 40, titleHeight + 30, adPaint);
     }
 
     private void drawHeader() {

@@ -117,7 +117,7 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
         initAlias();
 //        verifyQQLoginExpiresTime();
         checkNewVersion();
-        // restoreReadActivity();
+        restoreReadActivity();
     }
 
     private void setStatusBar() {
@@ -183,7 +183,7 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
 
     private void initCurrentItem() {
         if (getIntent().hasExtra("index")) {
-            int index = getIntent().getIntExtra("index", 2);
+            int index = getIntent().getIntExtra("index", 1);
             switch (index) {
                 case 0:
                     setCurrentItem(MainItemType.BOOK_RACK);
@@ -195,16 +195,13 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
                     setCurrentItem(MainItemType.LISTEN_BOOK);
                     break;
                 case 3:
-                    setCurrentItem(MainItemType.RANK);
-                    break;
-                case 4:
                     setCurrentItem(MainItemType.MY);
                     break;
                 default:
                     break;
             }
         } else {
-            setCurrentItem(MainItemType.LISTEN_BOOK);
+            setCurrentItem(MainItemType.BOOK_STORE);
         }
     }
 
