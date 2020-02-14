@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp">
+
+        <ImageView
+            android:id="@+id/image_img"
+            android:layout_width="60dp"
+            android:layout_height="85dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_cover" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/text_book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="天价"
+                android:textColor="#ff424242"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/text_title"
+                style="@style/news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/text_book_name"
+                android:text="父亲节，让我们重温习近平写给父亲的一封信"
+                android:textColor="#424242"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="喵星人"
+                    android:textColor="#ff777579"
+                    android:textSize="12sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_read_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F7F5F6"
+        android:gravity="end"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp"
+        android:text="13.5万人阅读"
+        android:textColor="#ff777579"
+        android:textSize="12sp" />
+</LinearLayout>

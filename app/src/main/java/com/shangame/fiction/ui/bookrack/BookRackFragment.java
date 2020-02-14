@@ -47,7 +47,6 @@ public class BookRackFragment extends BaseFragment implements View.OnClickListen
     private BookListFragment bookListFragment;
     private BrowseHistoryFragment browseHistoryFragment;
 
-
     public static BookRackFragment newInstance() {
         BookRackFragment fragment = new BookRackFragment();
         return fragment;

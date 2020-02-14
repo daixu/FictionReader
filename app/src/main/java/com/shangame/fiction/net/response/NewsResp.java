@@ -21,6 +21,7 @@ public class NewsResp extends BaseResp {
             public int readcount;
             public int chapterid;
             public int bookShelves;
+            public String keyword;
             public List<MediaImageBean> mediaImage;
 
             public static class MediaImageBean {

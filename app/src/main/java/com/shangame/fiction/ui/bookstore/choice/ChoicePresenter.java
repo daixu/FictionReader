@@ -13,8 +13,8 @@ import com.shangame.fiction.net.response.NewsResp;
 public class ChoicePresenter extends RxPresenter<ChoiceContacts.View> implements ChoiceContacts.Presenter<ChoiceContacts.View> {
 
     @Override
-    public void getNewMediaList(long userId, int page, int pageSize) {
-        ApiManager.getInstance().getNewMediaList(userId, page, pageSize)
+    public void getNewMediaList(long userId, int page, int pageSize, int maleChannel) {
+        ApiManager.getInstance().getNewMediaList(userId, page, pageSize, maleChannel)
                 .compose(RxUtil.<NewsResp>applySchedulers(RxUtil.IO_ON_UI_TRANSFORMER_BACK_PRESSURE))
                 .compose(mView.<NewsResp>bindToLife())
                 .subscribe(new BaseSubscriber<NewsResp>() {

@@ -8,20 +8,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal"
         android:layout_gravity="bottom"
-        android:clipChildren="false">
+        android:clipChildren="false"
+        android:orientation="horizontal">
 
         <com.shangame.fiction.widget.TabItemView
             android:id="@+id/tabBookRack"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:clipChildren="false"
             android:layout_weight="1"
+            android:clipChildren="false"
             android:gravity="center"
             android:paddingTop="5dp"
             app:normal_src="@drawable/tab_bookrack_n"
-            app:selected="true"
             app:selected_src="@drawable/tab_bookrack_s"
             app:show_type="red_dot"
             app:text="@string/bookrack"
@@ -29,11 +28,27 @@
             app:text_select_color="@color/colorPrimary" />
 
         <com.shangame.fiction.widget.TabItemView
+            android:id="@+id/tab_book_choice"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clipChildren="false"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            app:normal_src="@drawable/icon_choice_n"
+            app:selected="true"
+            app:selected_src="@drawable/icon_choice_s"
+            app:show_type="red_dot"
+            app:text="精选"
+            app:text_normal_color="@color/normal_text_color"
+            app:text_select_color="@color/colorPrimary" />
+
+        <com.shangame.fiction.widget.TabItemView
             android:id="@+id/tabBookStore"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:clipChildren="false"
             android:layout_weight="1"
+            android:clipChildren="false"
             android:gravity="center"
             android:paddingTop="5dp"
             app:normal_src="@drawable/tab_bookstore_n"
@@ -47,10 +62,11 @@
             android:id="@+id/tab_listen_book"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:clipChildren="false"
             android:layout_weight="1"
+            android:clipChildren="false"
             android:gravity="center"
             android:paddingTop="5dp"
+            android:visibility="gone"
             app:normal_src="@drawable/icon_player_n"
             app:selected_src="@drawable/icon_player_s"
             app:show_type="red_dot"
@@ -61,9 +77,9 @@
         <com.shangame.fiction.widget.TabItemView
             android:id="@+id/tabMy"
             android:layout_width="0dp"
-            android:clipChildren="false"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clipChildren="false"
             android:gravity="center"
             android:paddingTop="5dp"
             app:normal_src="@drawable/tab_my_n"

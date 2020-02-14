@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,8 +19,10 @@ import com.shangame.fiction.R;
 import com.shangame.fiction.core.base.BaseFragment;
 import com.shangame.fiction.core.manager.AppSetting;
 import com.shangame.fiction.core.manager.Logger;
+import com.shangame.fiction.core.utils.BigMagicIndicatorAdapter;
 import com.shangame.fiction.ui.bookrack.MagicIndicatorAdapter;
 import com.shangame.fiction.ui.bookstore.choice.ChoiceFragment;
+import com.shangame.fiction.ui.listen.ListenBookFragment;
 import com.shangame.fiction.ui.popup.FreeReadPopupWindow;
 import com.shangame.fiction.ui.search.SearchBookActivity;
 import com.shangame.fiction.ui.task.TaskCenterActivity;
@@ -45,10 +48,11 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
     private FragmentPagerAdapter mAdapter;
     private List<Fragment> fragmentList;
 
-    private ChoiceFragment mChoiceFragment;
+//    private ChoiceFragment mChoiceFragment;
     private ChoicenessFragment choicenessFragment;
     private GirlPageFragment girlPageFragment;
     private BoyPageFragment boyPageFragment;
+    private ListenBookFragment mListenBookFragment;
 
     public static BookStoreFragment newInstance() {
         BookStoreFragment fragment = new BookStoreFragment();
@@ -106,16 +110,18 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
     private void initViewPager(View contentView) {
         mViewPager = contentView.findViewById(R.id.viewPager);
 
-        mChoiceFragment = new ChoiceFragment();
+//        mChoiceFragment = new ChoiceFragment();
         choicenessFragment = new ChoicenessFragment();
         girlPageFragment = new GirlPageFragment();
         boyPageFragment = new BoyPageFragment();
+        mListenBookFragment = new ListenBookFragment();
 
         fragmentList = new ArrayList<>();
-        fragmentList.add(mChoiceFragment);
+//        fragmentList.add(mChoiceFragment);
         fragmentList.add(choicenessFragment);
         fragmentList.add(girlPageFragment);
         fragmentList.add(boyPageFragment);
+        fragmentList.add(mListenBookFragment);
 
         mAdapter = new FragmentPagerAdapter(getChildFragmentManager()) {
 
@@ -137,12 +143,13 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
     private void initMagicIndicator(View contentView) {
         MagicIndicator magicIndicator = contentView.findViewById(R.id.magic_indicator);
         final List<String> titleList = new ArrayList<>(3);
-        titleList.add("精选");
+//        titleList.add("精选");
         titleList.add("书城");
         titleList.add("女生");
         titleList.add("男生");
+        titleList.add("听书");
         CommonNavigator commonNavigator = new CommonNavigator(mContext);
-        MagicIndicatorAdapter magicIndicatorAdapter = new MagicIndicatorAdapter(mContext, mViewPager);
+        BigMagicIndicatorAdapter magicIndicatorAdapter = new BigMagicIndicatorAdapter(mContext, mViewPager, ContextCompat.getColor(mContext, android.R.color.transparent));
         magicIndicatorAdapter.setTitleList(titleList);
         commonNavigator.setAdapter(magicIndicatorAdapter);
         magicIndicator.setNavigator(commonNavigator);
@@ -190,16 +197,17 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
         int position = mViewPager.getCurrentItem();
         switch (position) {
             case 0:
-                mChoiceFragment.scrollToTop();
-                break;
-            case 1:
+                // mChoiceFragment.scrollToTop();
                 choicenessFragment.scrollToTop();
                 break;
-            case 2:
+            case 1:
                 girlPageFragment.scrollToTop();
                 break;
-            case 3:
+            case 2:
                 boyPageFragment.scrollToTop();
+                break;
+            case 3:
+                mListenBookFragment.scrollToTop();
                 break;
             default:
                 break;

@@ -24,9 +24,9 @@ public abstract class BaseNewsItemProvider extends BaseItemProvider<NewsResp.Dat
         }
 
         //设置标题、底部作者、评论数、发表时间
-        helper.setText(R.id.text_title, news.title)
-                .setText(R.id.text_author, news.author)
-                .setText(R.id.text_comment_num, news.readcount + "评论");
+        helper.setText(R.id.text_title, news.title);
+        helper.setText(R.id.text_author, news.author);
+        helper.setText(R.id.text_read_count, news.readcount + "人阅读");
 
         //根据情况显示置顶、广告和热点的标签
         setData(helper, news);

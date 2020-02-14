@@ -18,6 +18,6 @@ public interface ChoiceContacts {
     }
 
     interface Presenter<V> extends BaseContract.BaserPresenter<V> {
-        void getNewMediaList(long userId, int page, int pageSize);
+        void getNewMediaList(long userId, int page, int pageSize, int maleChannel);
     }
 }

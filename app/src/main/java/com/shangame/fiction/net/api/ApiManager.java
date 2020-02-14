@@ -483,8 +483,8 @@ public class ApiManager {
         return apiService.getFriendRead(userId, maleChannel, page, pageSize, status, ApiConstant.Channel.ANDROID);
     }
 
-    public Flowable<NewsResp> getNewMediaList(long userId, int page, int pageSize) {
-        return apiService.getNewMediaList(userId, page, pageSize);
+    public Flowable<NewsResp> getNewMediaList(long userId, int page, int pageSize, int maleChannel) {
+        return apiService.getNewMediaList(userId, page, pageSize, maleChannel);
     }
     //-----------newBookInfoService---end--------------
 

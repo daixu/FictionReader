@@ -6,4 +6,5 @@ public enum MainItemType{
     LISTEN_BOOK,
     RANK,
     MY,
+    BOOK_CHOICE,
 }

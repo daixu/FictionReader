@@ -29,6 +29,7 @@ import com.shangame.fiction.storage.manager.UserInfoManager;
 import com.shangame.fiction.storage.model.UserInfo;
 import com.shangame.fiction.ui.bookrack.BookRackFragment;
 import com.shangame.fiction.ui.bookstore.BookStoreFragment;
+import com.shangame.fiction.ui.bookstore.choice.ChoiceFragment;
 import com.shangame.fiction.ui.listen.ListenBookFragment;
 import com.shangame.fiction.ui.listen.PlayerSong;
 import com.shangame.fiction.ui.listen.palyer.Song;
@@ -59,16 +60,18 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
     private static final String TAG = "MainActivity";
 
     private TabItemView tabBookRack;
+    private TabItemView tabBookChoice;
     private TabItemView tabBookStore;
     private TabItemView tabMy;
-    private TabItemView tabListenBook;
+//    private TabItemView tabListenBook;
 
     private MainItemType currentItemType;
 
     private BookRackFragment bookRackFragment;
+    private ChoiceFragment mChoiceFragment;
     private BookStoreFragment bookStoreFragment;
     private MyFragment myFragment;
-    private ListenBookFragment mListenBookFragment;
+//    private ListenBookFragment mListenBookFragment;
 
     private CircleRotateImageView mImagePlayerCover;
 
@@ -126,16 +129,18 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
 
     private void initView() {
         tabBookRack = findViewById(R.id.tabBookRack);
+        tabBookChoice = findViewById(R.id.tab_book_choice);
         tabBookStore = findViewById(R.id.tabBookStore);
         tabMy = findViewById(R.id.tabMy);
-        tabListenBook = findViewById(R.id.tab_listen_book);
+//        tabListenBook = findViewById(R.id.tab_listen_book);
 
         mImagePlayerCover = findViewById(R.id.image_player_cover);
 
         tabBookRack.setOnClickListener(this);
+        tabBookChoice.setOnClickListener(this);
         tabBookStore.setOnClickListener(this);
         tabMy.setOnClickListener(this);
-        tabListenBook.setOnClickListener(this);
+//        tabListenBook.setOnClickListener(this);
         mImagePlayerCover.setOnClickListener(this);
     }
 
@@ -152,30 +157,35 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
             bookRackFragment = BookRackFragment.newInstance();
             bookStoreFragment = BookStoreFragment.newInstance();
             myFragment = MyFragment.newInstance();
-            mListenBookFragment = ListenBookFragment.newInstance(1);
+//            mListenBookFragment = ListenBookFragment.newInstance(1);
+            mChoiceFragment = ChoiceFragment.newInstance(1);
 
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(R.id.container, bookRackFragment, "BookRackFragment");
+            fragmentTransaction.add(R.id.container, mChoiceFragment, "ChoiceFragment");
             fragmentTransaction.add(R.id.container, bookStoreFragment, "BookStoreFragment");
-            fragmentTransaction.add(R.id.container, mListenBookFragment, "ListenBookFragment");
+//            fragmentTransaction.add(R.id.container, mListenBookFragment, "ListenBookFragment");
             fragmentTransaction.add(R.id.container, myFragment, "MyFragment");
             fragmentTransaction.hide(bookRackFragment);
+            fragmentTransaction.show(mChoiceFragment);
             fragmentTransaction.hide(bookStoreFragment);
-            fragmentTransaction.show(mListenBookFragment);
+//            fragmentTransaction.show(mListenBookFragment);
             fragmentTransaction.hide(myFragment);
             fragmentTransaction.commitAllowingStateLoss();
         } else {
             bookRackFragment = (BookRackFragment) getSupportFragmentManager().getFragment(savedInstanceState, "BookRackFragment");
+            mChoiceFragment = (ChoiceFragment) getSupportFragmentManager().getFragment(savedInstanceState, "ChoiceFragment");
             bookStoreFragment = (BookStoreFragment) getSupportFragmentManager().getFragment(savedInstanceState, "BookStoreFragment");
-            mListenBookFragment = (ListenBookFragment) getSupportFragmentManager().getFragment(savedInstanceState, "mListenBookFragment");
+//            mListenBookFragment = (ListenBookFragment) getSupportFragmentManager().getFragment(savedInstanceState, "mListenBookFragment");
             myFragment = (MyFragment) getSupportFragmentManager().getFragment(savedInstanceState, "MyFragment");
 
             fragmentManager = getSupportFragmentManager();
             fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.hide(bookRackFragment);
+            fragmentTransaction.show(mChoiceFragment);
             fragmentTransaction.hide(bookStoreFragment);
-            fragmentTransaction.show(mListenBookFragment);
+//            fragmentTransaction.show(mListenBookFragment);
             fragmentTransaction.hide(myFragment);
             fragmentTransaction.commitAllowingStateLoss();
         }
@@ -189,10 +199,10 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
                     setCurrentItem(MainItemType.BOOK_RACK);
                     break;
                 case 1:
-                    setCurrentItem(MainItemType.BOOK_STORE);
+                    setCurrentItem(MainItemType.BOOK_CHOICE);
                     break;
                 case 2:
-                    setCurrentItem(MainItemType.LISTEN_BOOK);
+                    setCurrentItem(MainItemType.BOOK_STORE);
                     break;
                 case 3:
                     setCurrentItem(MainItemType.MY);
@@ -201,7 +211,7 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
                     break;
             }
         } else {
-            setCurrentItem(MainItemType.BOOK_STORE);
+            setCurrentItem(MainItemType.BOOK_CHOICE);
         }
     }
 
@@ -240,38 +250,51 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
                 updateTabItemState(R.id.tabBookRack);
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.show(bookRackFragment);
+                fragmentTransaction.hide(mChoiceFragment);
                 fragmentTransaction.hide(bookStoreFragment);
                 fragmentTransaction.hide(myFragment);
-                fragmentTransaction.hide(mListenBookFragment);
+//                fragmentTransaction.hide(mListenBookFragment);
+                fragmentTransaction.commitAllowingStateLoss();
+                break;
+            case BOOK_CHOICE:
+                updateTabItemState(R.id.tab_book_choice);
+                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.hide(bookRackFragment);
+                fragmentTransaction.show(mChoiceFragment);
+                fragmentTransaction.hide(bookStoreFragment);
+                fragmentTransaction.hide(myFragment);
+//                fragmentTransaction.hide(mListenBookFragment);
                 fragmentTransaction.commitAllowingStateLoss();
                 break;
             case BOOK_STORE:
                 updateTabItemState(R.id.tabBookStore);
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.hide(bookRackFragment);
+                fragmentTransaction.hide(mChoiceFragment);
                 fragmentTransaction.show(bookStoreFragment);
                 fragmentTransaction.hide(myFragment);
-                fragmentTransaction.hide(mListenBookFragment);
+//                fragmentTransaction.hide(mListenBookFragment);
                 fragmentTransaction.commitAllowingStateLoss();
                 break;
             case MY:
                 updateTabItemState(R.id.tabMy);
                 fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.hide(bookRackFragment);
+                fragmentTransaction.hide(mChoiceFragment);
                 fragmentTransaction.hide(bookStoreFragment);
                 fragmentTransaction.show(myFragment);
-                fragmentTransaction.hide(mListenBookFragment);
+//                fragmentTransaction.hide(mListenBookFragment);
                 fragmentTransaction.commitAllowingStateLoss();
                 break;
-            case LISTEN_BOOK:
-                updateTabItemState(R.id.tab_listen_book);
-                fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.hide(bookRackFragment);
-                fragmentTransaction.hide(bookStoreFragment);
-                fragmentTransaction.hide(myFragment);
-                fragmentTransaction.show(mListenBookFragment);
-                fragmentTransaction.commitAllowingStateLoss();
-                break;
+//            case LISTEN_BOOK:
+//                updateTabItemState(R.id.tab_listen_book);
+//                fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//                fragmentTransaction.hide(bookRackFragment);
+//                fragmentTransaction.hide(bookStoreFragment);
+//                fragmentTransaction.hide(myFragment);
+//                fragmentTransaction.show(mListenBookFragment);
+//                fragmentTransaction.commitAllowingStateLoss();
+//                break;
             default:
                 break;
         }
@@ -281,28 +304,38 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
         switch (selectTabId) {
             case R.id.tabBookRack:
                 tabBookRack.setSelected(true);
+                tabBookChoice.setSelected(false);
                 tabBookStore.setSelected(false);
                 tabMy.setSelected(false);
-                tabListenBook.setSelected(false);
+//                tabListenBook.setSelected(false);
+                break;
+            case R.id.tab_book_choice:
+                tabBookRack.setSelected(false);
+                tabBookChoice.setSelected(true);
+                tabBookStore.setSelected(false);
+                tabMy.setSelected(false);
+//                tabBookStore.setSelected(false);
                 break;
             case R.id.tabBookStore:
                 tabBookRack.setSelected(false);
+                tabBookChoice.setSelected(false);
                 tabBookStore.setSelected(true);
                 tabMy.setSelected(false);
-                tabListenBook.setSelected(false);
+//                tabListenBook.setSelected(false);
                 break;
             case R.id.tabMy:
                 tabBookRack.setSelected(false);
+                tabBookChoice.setSelected(false);
                 tabBookStore.setSelected(false);
                 tabMy.setSelected(true);
-                tabListenBook.setSelected(false);
+//                tabListenBook.setSelected(false);
                 break;
-            case R.id.tab_listen_book:
-                tabBookRack.setSelected(false);
-                tabBookStore.setSelected(false);
-                tabMy.setSelected(false);
-                tabListenBook.setSelected(true);
-                break;
+//            case R.id.tab_listen_book:
+//                tabBookRack.setSelected(false);
+//                tabBookStore.setSelected(false);
+//                tabMy.setSelected(false);
+//                tabListenBook.setSelected(true);
+//                break;
             default:
                 break;
         }
@@ -379,8 +412,9 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
     @Override
     public void onSaveInstanceState(Bundle outState) {
         getSupportFragmentManager().putFragment(outState, "BookRackFragment", bookRackFragment);
+        getSupportFragmentManager().putFragment(outState, "ChoiceFragment", mChoiceFragment);
         getSupportFragmentManager().putFragment(outState, "BookStoreFragment", bookStoreFragment);
-        getSupportFragmentManager().putFragment(outState, "ListenBookFragment", mListenBookFragment);
+//        getSupportFragmentManager().putFragment(outState, "ListenBookFragment", mListenBookFragment);
         getSupportFragmentManager().putFragment(outState, "MyFragment", myFragment);
         super.onSaveInstanceState(outState);
     }
@@ -392,6 +426,9 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
             case R.id.tabBookRack:
                 setCurrentItem(MainItemType.BOOK_RACK);
                 break;
+            case R.id.tab_book_choice:
+                setCurrentItem(MainItemType.BOOK_CHOICE);
+                break;
             case R.id.tabBookStore:
                 if (currentItemType == MainItemType.BOOK_STORE) {
                     bookStoreFragment.scrollToTop();
@@ -402,9 +439,9 @@ public class MainFrameWorkActivity extends BaseActivity implements View.OnClickL
             case R.id.tabMy:
                 setCurrentItem(MainItemType.MY);
                 break;
-            case R.id.tab_listen_book:
-                setCurrentItem(MainItemType.LISTEN_BOOK);
-                break;
+//            case R.id.tab_listen_book:
+//                setCurrentItem(MainItemType.LISTEN_BOOK);
+//                break;
             case R.id.image_player_cover: {
                 Intent intent = new Intent(mContext, MusicPlayerActivity.class);
                 Song song = PlayerSong.getInstance().getPlayerSong();

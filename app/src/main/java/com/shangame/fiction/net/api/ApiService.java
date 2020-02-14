@@ -375,7 +375,7 @@ public interface ApiService {
     Observable<HttpResult<FriendReadResponse>> getFriendRead(@Query("userid") long userid, @Query("malechannel") int malechannel, @Query("page") int page, @Query("pagesize") int pagesize, @Query("status") int status, @Query("channel") int channel);
 
     @GET(newBookInfoService + "get-newMediaList")
-    Flowable<NewsResp> getNewMediaList(@Query("userid") long userid, @Query("page") int page, @Query("pagesize") int pagesize);
+    Flowable<NewsResp> getNewMediaList(@Query("userid") long userid, @Query("page") int page, @Query("pagesize") int pagesize, @Query("maleChannel") int maleChannel);
     //-----------newBookInfoService---end--------------
 
 
