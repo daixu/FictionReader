@@ -167,6 +167,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
     private View readHeadLayout;
     private View mLayoutHeadTop;
     private View mLayoutReadTop;
+    private View mLayoutReadContent;
     private View mLayoutRedTop;
     private View readSettingLayout;
     private View ivDot;
@@ -336,6 +337,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
         mLayoutHeadTop = readHeadLayout.findViewById(R.id.layout_head_top);
 
         mLayoutReadTop = findViewById(R.id.layout_read_top);
+        mLayoutReadContent = findViewById(R.id.layout_read_content);
         mLayoutRedTop = findViewById(R.id.layout_red_top);
 
         if (Build.VERSION.SDK_INT > 20) {
@@ -349,7 +351,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
                         mLayoutHeadTop.setVisibility(View.VISIBLE);
                         mLayoutRedTop.setVisibility(View.VISIBLE);
                         mLayoutReadTop.setVisibility(View.VISIBLE);
-                        mLayoutReadTop.setBackgroundResource(mPageConfig.backgroundColor);
+                        mLayoutReadContent.setBackgroundResource(mPageConfig.backgroundColor);
                     } else {
                         mLayoutHeadTop.setVisibility(View.GONE);
                         mLayoutRedTop.setVisibility(View.GONE);
@@ -1411,7 +1413,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
             mPageConfig.saveBackgroundColor(PageConfig.BackgroundColor.NIGHT_COLOR);
             baColor = PageConfig.BackgroundColor.NIGHT_COLOR;
             setStatusBarColor(baColor);
-            mLayoutReadTop.setBackgroundResource(baColor);
+            mLayoutReadContent.setBackgroundResource(baColor);
             mPageFlipView.updateConfig();
             textBookParser.updateConfig();
 
@@ -1429,7 +1431,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
             baColor = AppSetting.getInstance(mActivity).getInt(SharedKey.READ_BG, PageConfig.BackgroundColor.COLOR_5);
             mPageConfig.saveBackgroundColor(baColor);
             setStatusBarColor(baColor);
-            mLayoutReadTop.setBackgroundResource(baColor);
+            mLayoutReadContent.setBackgroundResource(baColor);
             mPageFlipView.updateConfig();
             textBookParser.updateConfig();
         }
@@ -1453,7 +1455,7 @@ public class ReadActivity extends BaseActivity implements GestureDetector.OnGest
                     changeDayMode();
                 }
                 setStatusBarColor(color);
-                mLayoutReadTop.setBackgroundResource(color);
+                mLayoutReadContent.setBackgroundResource(color);
                 mPageConfig.saveBackgroundColor(color);
                 mPageFlipView.updateConfig();
                 textBookParser.updateConfig();

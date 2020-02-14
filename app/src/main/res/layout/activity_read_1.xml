@@ -28,6 +28,7 @@
             android:layout_above="@id/bottom_container">
 
             <LinearLayout
+                android:id="@+id/layout_read_content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -35,7 +36,6 @@
                 <View
                     android:id="@+id/layout_read_top"
                     android:layout_width="match_parent"
-                    android:background="#fff"
                     android:layout_height="@dimen/statusbar_view_height" />
 
                 <com.shangame.fiction.book.test.PageFlipView
