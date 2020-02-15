@@ -13,5 +13,6 @@ public class PictureConfigResponse{
         public String imgurl;
         public int bookid;
         public String linkurl;
+        public String color;
     }
 }
