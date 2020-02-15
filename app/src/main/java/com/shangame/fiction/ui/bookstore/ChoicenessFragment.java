@@ -36,6 +36,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.shangame.fiction.R;
 import com.shangame.fiction.ad.ADConfig;
 import com.shangame.fiction.ad.TTAdManagerHolder;
+import com.shangame.fiction.adapter.EditorRecommendAdapter;
 import com.shangame.fiction.core.base.BaseActivity;
 import com.shangame.fiction.core.base.BaseLazyFragment;
 import com.shangame.fiction.net.api.ApiConstant;
@@ -44,6 +45,7 @@ import com.shangame.fiction.net.response.ChoicenessResponse;
 import com.shangame.fiction.net.response.OthersLookResponse;
 import com.shangame.fiction.net.response.PictureConfigResponse;
 import com.shangame.fiction.storage.manager.UserInfoManager;
+import com.shangame.fiction.storage.model.BookInfoEntity;
 import com.shangame.fiction.storage.model.UserInfo;
 import com.shangame.fiction.ui.author.home.NetworkImageHolderView;
 import com.shangame.fiction.ui.bookdetail.BookDetailActivity;
@@ -54,7 +56,6 @@ import com.shangame.fiction.ui.web.WebViewActivity;
 import com.shangame.fiction.widget.BoutiquepaceItemDecoration;
 import com.shangame.fiction.widget.OtherLookItemDecoration;
 import com.shangame.fiction.widget.RecommendSpaceItemDecoration;
-import com.shangame.fiction.widget.SpaceItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,16 +71,14 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
     private final static int LOAD_MORE_PAGE_SIZE = 7;
     private SmartRefreshLayout smartRefreshLayout;
     private View kindLayout;
-    private List<ChoicenessResponse.CardataBean> carData = new ArrayList<>();
     private RecyclerView highlyRecommendRecyclerView;
     private RecyclerView boutiqueSetRecyclerView;
-    private RecyclerView editorRecommendRecyclerView;
     private RecyclerView hotSerialRecyclerView;
     private RecyclerView labelRecyclerView;
     private RecyclerView otherLookRecyclerView;
     private HeavyRecommendAdapter heavyRecommendAdapter;
     private BoutiqueSetAdapter boutiqueSetAdapter;
-    private BookWithContentAdapter editorRecommendAdapter;
+    private EditorRecommendAdapter mEditorRecommendAdapter;
     private HotSerialAdapter hotSerialAdapter;
     private LabelAdapter labelAdapter;
     private OtherLookAdapter otherLookAdapter;
@@ -100,6 +99,7 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
     private ConvenientBanner mConvenientBanner;
 
     private List<PictureConfigResponse.PicItem> mList = new ArrayList<>();
+    private List<BookInfoEntity> mEditorRecommendList = new ArrayList<>();
 
     private boolean hidden;
 
@@ -276,13 +276,10 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
     }
 
     private void initEditorRecommend(View contentView) {
-        editorRecommendRecyclerView = contentView.findViewById(R.id.editorRecommendRecyclerView);
-
-        editorRecommendRecyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-
-        editorRecommendRecyclerView.addItemDecoration(dividerItemDecoration);
-        editorRecommendAdapter = new BookWithContentAdapter(mActivity);
-        editorRecommendRecyclerView.setAdapter(editorRecommendAdapter);
+        RecyclerView recyclerView = contentView.findViewById(R.id.editorRecommendRecyclerView);
+        recyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
+        mEditorRecommendAdapter = new EditorRecommendAdapter(R.layout.item_editor_recommend, mEditorRecommendList);
+        recyclerView.setAdapter(mEditorRecommendAdapter);
     }
 
     private void initBoutiqueSet(View contentView) {
@@ -553,7 +550,6 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
 
         heavyRecommendAdapter.clear();
         boutiqueSetAdapter.clear();
-        editorRecommendAdapter.clear();
         hotSerialAdapter.clear();
         labelAdapter.clear();
         heavyRecommendAdapter.addAll(choicenessResponse.heavydata);
@@ -562,8 +558,8 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         boutiqueSetAdapter.addAll(choicenessResponse.choicedata);
         boutiqueSetAdapter.notifyDataSetChanged();
 
-        editorRecommendAdapter.addAll(choicenessResponse.recdata);
-        editorRecommendAdapter.notifyDataSetChanged();
+        mEditorRecommendList.clear();
+        mEditorRecommendList.addAll(choicenessResponse.recdata);
 
         hotSerialAdapter.addAll(choicenessResponse.hotdata);
         hotSerialAdapter.notifyDataSetChanged();
@@ -571,7 +567,6 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         labelAdapter.addAll(choicenessResponse.classdata);
         labelAdapter.notifyDataSetChanged();
 
-        carData.addAll(choicenessResponse.cardata);
         kindLayout.setVisibility(View.VISIBLE);
 
         UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
