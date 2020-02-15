@@ -23,6 +23,7 @@ import com.shangame.fiction.core.utils.BitmapUtils;
 import com.shangame.fiction.core.utils.DensityUtil;
 import com.shangame.fiction.core.utils.QrEncodeUtils;
 import com.shangame.fiction.net.api.ApiConstant;
+import com.shangame.fiction.net.response.GetSharePosterResp;
 import com.shangame.fiction.net.response.TaskAwardResponse;
 import com.shangame.fiction.storage.manager.FileManager;
 import com.shangame.fiction.storage.manager.UserInfoManager;
@@ -272,6 +273,16 @@ public class InviteFriendsActivity extends BaseActivity implements SharePosterCo
                 showToast("已经领取");
             }
         }
+    }
+
+    @Override
+    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean) {
+
+    }
+
+    @Override
+    public void getSharePosterFailure(String msg) {
+
     }
 
     @Override

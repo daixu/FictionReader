@@ -19,6 +19,7 @@ import com.shangame.fiction.core.constant.SharedKey;
 import com.shangame.fiction.core.utils.DensityUtil;
 import com.shangame.fiction.core.utils.StatusBarUtil;
 import com.shangame.fiction.net.api.ApiConstant;
+import com.shangame.fiction.net.response.GetSharePosterResp;
 import com.shangame.fiction.net.response.TaskAwardResponse;
 import com.shangame.fiction.storage.manager.UserInfoManager;
 import com.shangame.fiction.storage.model.UserInfo;
@@ -147,6 +148,17 @@ public class SharePosterActivity extends BaseActivity implements SharePosterCont
     }
 
     @Override
+    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean) {
+        Log.e("hhh", dataBean.shareImage);
+        WeChatSharer.shareUrlToWx(mContext, dataBean.shareImage, "hhh", "hhhcontent");
+    }
+
+    @Override
+    public void getSharePosterFailure(String msg) {
+
+    }
+
+    @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return this.bindToLifecycle();
     }
@@ -170,7 +182,10 @@ public class SharePosterActivity extends BaseActivity implements SharePosterCont
         sharePopupWindow.setOnShareListener(new SharePopupWindow.OnShareListener() {
             @Override
             public void onShareToWeChat() {
-                shareWeChat();
+                UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
+                int agentId = userInfo.agentId;
+                mPresenter.getSharePoster(agentId, mPosition + 1);
+                // shareWeChat();
             }
 
             @Override

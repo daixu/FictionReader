@@ -820,5 +820,9 @@ public class ApiManager {
     public Flowable<RedPaperResp> setRedPaper(long userId, int agentId) {
         return apiService.setRedPaper(userId, agentId);
     }
+
+    public Flowable<GetSharePosterResp> getSharePoster(int agentId, int tempId) {
+        return apiService.getSharePoster(agentId, ApiConstant.Channel.ANDROID, tempId);
+    }
     //-----------agentService---end--------------
 }

@@ -591,6 +591,9 @@ public interface ApiService {
 
     @GET(agentService + "set-redPaper")
     Flowable<RedPaperResp> setRedPaper(@Query("userid") long userid, @Query("agentId") int agentId);
+
+    @GET(agentService + "get-sharePoster")
+    Flowable<GetSharePosterResp> getSharePoster(@Query("agentid") int agentid, @Query("channel") int channel, @Query("tempid") int tempid);
     //-----------agentService---end--------------
 
 }
