@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
         app:containerDeltaLength="0dp"
         app:containerShadowColor="#cfcfcf"
         app:containerShadowRadius="5dp">
@@ -35,28 +34,24 @@
             android:id="@+id/tvBookName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginRight="10dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="神雕侠女"
             android:textColor="@color/primary_text"
-            android:textSize="@dimen/txt_size_h3"
-            />
+            android:textSize="@dimen/txt_size_h3" />
 
         <TextView
             android:id="@+id/tvBookAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:text="金庸"
             android:textColor="@color/author_color"
             android:textSize="@dimen/txt_size_h2" />
-
     </LinearLayout>
-
-
 </LinearLayout>

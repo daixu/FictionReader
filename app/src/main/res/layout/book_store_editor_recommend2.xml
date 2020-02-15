@@ -33,7 +33,6 @@
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             android:text="@string/more" />
-
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
