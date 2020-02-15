@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="16dp"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
-    >
+    android:paddingRight="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:paddingTop="5dp"
-        >
+        android:paddingTop="5dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="10dp"
-            android:textColor="@color/primary_text"
             android:layout_centerVertical="true"
-            android:textStyle="bold"
+            android:drawablePadding="10dp"
+            android:text="标签找书"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/txt_size_h5"
-            android:text="标签找书"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvLabelMore"
@@ -32,20 +30,17 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:drawableRight="@drawable/item_arrow"
+            android:drawablePadding="5dp"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:drawablePadding="5dp"
-            android:text="全部标签"
-            />
+            android:text="全部标签" />
 
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lebelRecyclerView"
+        android:id="@+id/labelRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:paddingBottom="10dp"
-        />
-
+        android:paddingBottom="10dp" />
 </LinearLayout>

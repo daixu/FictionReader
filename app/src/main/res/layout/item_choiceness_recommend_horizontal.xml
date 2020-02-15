@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+    <com.shangame.fiction.widget.ShadowLayout
+        android:id="@+id/ivCoverLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        app:containerDeltaLength="0dp"
+        app:containerShadowColor="#cfcfcf"
+        app:containerShadowRadius="5dp">
+
+        <ImageView
+            android:id="@+id/ivCover"
+            android:layout_width="90dp"
+            android:layout_height="120dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/default_cover" />
+    </com.shangame.fiction.widget.ShadowLayout>
+
+    <ImageView
+        android:id="@+id/ivFlag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/icon_boutique" />
+
+    <TextView
+        android:id="@+id/tvBookName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:layout_toRightOf="@+id/ivCoverLayout"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="神雕侠女"
+        android:textColor="@color/primary_text"
+        android:textSize="18sp" />
+
+    <FrameLayout
+        android:id="@+id/layout_book_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBookName"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:layout_toRightOf="@+id/ivCoverLayout">
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_book_synopsis"
+            android:ellipsize="end"
+            android:lineSpacingExtra="3dp"
+            android:maxLines="2"
+            android:padding="10dp"
+            android:text="宋妍意外救了一只小包子，结果被小赖赖上。随后，小包子的爸爸找上..."
+            android:textColor="#ffa2a9b2"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvBookAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/bg_book_author"
+            android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:maxLines="1"
+            android:paddingTop="1.5dp"
+            android:text="金庸"
+            android:textColor="#ff755322"
+            android:textSize="11sp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_book_info"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/ivCoverLayout"
+        android:layout_toRightOf="@+id/ivCoverLayout"
+        android:gravity="end">
+
+        <TextView
+            android:id="@+id/text_class_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_label_item"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="古言"
+            android:textColor="#ff5c8ff7"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/bg_label_item"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="连载中"
+            android:textColor="#ffa2a9b2"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/text_work_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_label_item"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:text="102.48万字"
+            android:textColor="#ffa2a9b2"
+            android:textSize="11sp" />
+    </LinearLayout>
+</RelativeLayout>

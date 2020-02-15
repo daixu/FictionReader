@@ -18,6 +18,9 @@ public class BookWithContentViewHolder  extends RecyclerView.ViewHolder{
     public TextView tvBookName;
     public TextView tvContent;
     public TextView tvBookAuthor;
+    public TextView textClassName;
+    public TextView textStatus;
+    public TextView textWorkCount;
 
     public BookWithContentViewHolder(View itemView) {
         super(itemView);
@@ -27,5 +30,8 @@ public class BookWithContentViewHolder  extends RecyclerView.ViewHolder{
         this.tvBookName = itemView.findViewById(R.id.tvBookName);
         this.tvContent = itemView.findViewById(R.id.tvContent);
         this.tvBookAuthor = itemView.findViewById(R.id.tvBookAuthor);
+        this.textClassName = itemView.findViewById(R.id.text_class_name);
+        this.textStatus = itemView.findViewById(R.id.text_status);
+        this.textWorkCount = itemView.findViewById(R.id.text_work_count);
     }
 }

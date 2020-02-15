@@ -75,16 +75,12 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
     private RecyclerView boutiqueSetRecyclerView;
     private RecyclerView editorRecommendRecyclerView;
     private RecyclerView hotSerialRecyclerView;
-    private RecyclerView hotSearchRecyclerView;
-    private RecyclerView finishRecyclerView;
     private RecyclerView labelRecyclerView;
     private RecyclerView otherLookRecyclerView;
-    private HighlyRecommendAdapter highlyRecommendAdapter;
+    private HeavyRecommendAdapter heavyRecommendAdapter;
     private BoutiqueSetAdapter boutiqueSetAdapter;
     private BookWithContentAdapter editorRecommendAdapter;
     private HotSerialAdapter hotSerialAdapter;
-    private BookWithTitleAdapter hotSearchAdapter;
-    private BookWithTitleAdapter bookFinishAdapter;
     private LabelAdapter labelAdapter;
     private OtherLookAdapter otherLookAdapter;
     private DividerItemDecoration dividerItemDecoration;
@@ -163,8 +159,6 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         initBoutiqueSet(contentView);
         initHotSerial(contentView);
         initBoyGirl(contentView);
-        initHotSearch(contentView);
-        initBookFinish(contentView);
         initLabelKind(contentView);
         initOtherLook(contentView);
 
@@ -249,8 +243,8 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         contentView.findViewById(R.id.tvBoutiqueSetMore).setOnClickListener(this);
         contentView.findViewById(R.id.tveEditorRecommendMore).setOnClickListener(this);
         contentView.findViewById(R.id.tvHotSerialMore).setOnClickListener(this);
-        contentView.findViewById(R.id.tvHotSearachMore).setOnClickListener(this);
-        contentView.findViewById(R.id.tvFinishMore).setOnClickListener(this);
+        contentView.findViewById(R.id.layout_hot_search).setOnClickListener(this);
+        contentView.findViewById(R.id.layout_finish).setOnClickListener(this);
         contentView.findViewById(R.id.tvLabelMore).setOnClickListener(this);
 
         kindLayout = contentView.findViewById(R.id.kindLayout);
@@ -277,8 +271,8 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         highlyRecommendRecyclerView.setLayoutManager(gridLayoutManager);
         highlyRecommendRecyclerView.addItemDecoration(new RecommendSpaceItemDecoration(35));
         highlyRecommendRecyclerView.addItemDecoration(dividerItemDecoration);
-        highlyRecommendAdapter = new HighlyRecommendAdapter(mActivity);
-        highlyRecommendRecyclerView.setAdapter(highlyRecommendAdapter);
+        heavyRecommendAdapter = new HeavyRecommendAdapter(mActivity);
+        highlyRecommendRecyclerView.setAdapter(heavyRecommendAdapter);
     }
 
     private void initEditorRecommend(View contentView) {
@@ -327,32 +321,8 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
         contentView.findViewById(R.id.boyNovelLayout).setOnClickListener(this);
     }
 
-    private void initHotSearch(View contentView) {
-        hotSearchRecyclerView = contentView.findViewById(R.id.hotSearchRecyclerView);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 4);
-        hotSearchRecyclerView.setLayoutManager(gridLayoutManager);
-
-        hotSearchRecyclerView.addItemDecoration(new SpaceItemDecoration(35));
-
-        hotSearchAdapter = new BookWithTitleAdapter(mActivity);
-        hotSearchRecyclerView.setAdapter(hotSearchAdapter);
-    }
-
-    private void initBookFinish(View contentView) {
-        finishRecyclerView = contentView.findViewById(R.id.finishRecyclerView);
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 4);
-        finishRecyclerView.setLayoutManager(gridLayoutManager);
-
-        finishRecyclerView.addItemDecoration(new SpaceItemDecoration(35));
-
-        bookFinishAdapter = new BookWithTitleAdapter(mActivity);
-        finishRecyclerView.setAdapter(bookFinishAdapter);
-    }
-
     private void initLabelKind(View contentView) {
-        labelRecyclerView = contentView.findViewById(R.id.lebelRecyclerView);
+        labelRecyclerView = contentView.findViewById(R.id.labelRecyclerView);
 
         labelRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 2));
 
@@ -542,9 +512,9 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
             BookListByTypeActivity.lunchActivity(mActivity, BookStoreType.EditorRecommendMore, "主编力荐", BookStoreChannel.CHOICENESS);
         } else if (id == R.id.tvHotSerialMore) {
             BookListByTypeActivity.lunchActivity(mActivity, BookStoreType.HotSerialMore, "火热连载", BookStoreChannel.CHOICENESS);
-        } else if (id == R.id.tvHotSearachMore) {
+        } else if (id == R.id.layout_hot_search) {
             BookListByTypeActivity.lunchActivity(mActivity, BookStoreType.HotSearachMore, "畅销热搜", BookStoreChannel.CHOICENESS);
-        } else if (id == R.id.tvFinishMore) {
+        } else if (id == R.id.layout_finish) {
             BookListByTypeActivity.lunchActivity(mActivity, BookStoreType.FinishMore, "经典完本", BookStoreChannel.CHOICENESS);
         } else if (id == R.id.tvLabelMore) {
             startActivity(new Intent(mContext, BookLibraryActivity.class));
@@ -581,15 +551,13 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
     public void getChoicenessDataSuccess(ChoicenessResponse choicenessResponse) {
         smartRefreshLayout.finishRefresh();
 
-        highlyRecommendAdapter.clear();
+        heavyRecommendAdapter.clear();
         boutiqueSetAdapter.clear();
         editorRecommendAdapter.clear();
         hotSerialAdapter.clear();
-        hotSearchAdapter.clear();
-        bookFinishAdapter.clear();
         labelAdapter.clear();
-        highlyRecommendAdapter.addAll(choicenessResponse.heavydata);
-        highlyRecommendAdapter.notifyDataSetChanged();
+        heavyRecommendAdapter.addAll(choicenessResponse.heavydata);
+        heavyRecommendAdapter.notifyDataSetChanged();
 
         boutiqueSetAdapter.addAll(choicenessResponse.choicedata);
         boutiqueSetAdapter.notifyDataSetChanged();
@@ -599,12 +567,6 @@ public class ChoicenessFragment extends BaseLazyFragment implements View.OnClick
 
         hotSerialAdapter.addAll(choicenessResponse.hotdata);
         hotSerialAdapter.notifyDataSetChanged();
-
-        hotSearchAdapter.addAll(choicenessResponse.searchdata);
-        hotSearchAdapter.notifyDataSetChanged();
-
-        bookFinishAdapter.addAll(choicenessResponse.completedata);
-        bookFinishAdapter.notifyDataSetChanged();
 
         labelAdapter.addAll(choicenessResponse.classdata);
         labelAdapter.notifyDataSetChanged();

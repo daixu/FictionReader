@@ -58,6 +58,8 @@
 
                 <include layout="@layout/book_store_boutique_set" />
 
+                <include layout="@layout/book_store_recommend_book_list" />
+
                 <FrameLayout
                     android:id="@+id/adContainer1"
                     android:layout_width="wrap_content"
@@ -70,10 +72,6 @@
                 <include layout="@layout/book_store_hot_serial" />
 
                 <include layout="@layout/boy_girl" />
-
-                <include layout="@layout/book_store_hot_search" />
-
-                <include layout="@layout/book_store_book_finish" />
 
                 <include layout="@layout/book_store_label_kind" />
 

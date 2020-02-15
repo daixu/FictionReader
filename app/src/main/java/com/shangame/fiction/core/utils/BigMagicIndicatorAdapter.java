@@ -58,7 +58,8 @@ public class BigMagicIndicatorAdapter extends CommonNavigatorAdapter {
     @Override
     public IPagerIndicator getIndicator(Context context) {
         LinePagerIndicator indicator = new LinePagerIndicator(context);
-        indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
+        indicator.setMode(LinePagerIndicator.MODE_EXACTLY);
+        indicator.setLineWidth(UIUtil.dip2px(context, 16));
         indicator.setLineHeight(UIUtil.dip2px(context, 2));
         indicator.setColors(mIndicatorColor);
         return indicator;
