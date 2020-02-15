@@ -19,31 +19,21 @@
             android:orientation="vertical"
             android:paddingBottom="10dp">
 
-            <FrameLayout
+            <View
+                android:id="@+id/layout_top"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="100dp"
+                android:background="@color/colorPrimary"
+                android:orientation="vertical" />
 
-                <com.shangame.fiction.widget.ad.AdViewPagerBanner
-                    android:id="@+id/adViewPagerBanner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <!--加阴影-->
-                <View
-                    android:id="@+id/bannerShadow"
-                    android:layout_width="match_parent"
-                    android:layout_height="5dp"
-                    android:background="@drawable/banner_shadow"
-                    android:visibility="gone" />
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:contentDescription="@string/app_name"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/border" />
-            </FrameLayout>
+            <com.bigkoo.convenientbanner.ConvenientBanner
+                android:id="@+id/convenientBanner"
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="-80dp"
+                android:layout_marginRight="15dp"
+                app:canLoop="true" />
 
             <include layout="@layout/book_store_choiceness_menu" />
 

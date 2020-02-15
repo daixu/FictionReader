@@ -6,16 +6,16 @@
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         app:elevation="0dp">
 
         <View
             android:id="@+id/fake_status_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/statusbar_view_height"
-            android:background="@color/colorPrimary" />
+            android:layout_height="@dimen/statusbar_view_height" />
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -26,8 +26,7 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimary">
+                android:layout_height="wrap_content">
 
                 <net.lucode.hackware.magicindicator.MagicIndicator
                     android:id="@+id/magic_indicator"
@@ -45,12 +44,6 @@
                     android:contentDescription="@string/app_name"
                     android:padding="10dp"
                     android:src="@drawable/icon_search" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1px"
-                    android:layout_gravity="bottom"
-                    android:background="#E7E7E7" />
             </FrameLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
@@ -76,6 +69,5 @@
             android:layout_marginBottom="16dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/red_anim" />
-
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>

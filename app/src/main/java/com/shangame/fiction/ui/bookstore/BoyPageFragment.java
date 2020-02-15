@@ -2,6 +2,7 @@ package com.shangame.fiction.ui.bookstore;
 
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.bigkoo.convenientbanner.ConvenientBanner;
+import com.bigkoo.convenientbanner.holder.CBViewHolderCreator;
+import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
 import com.bytedance.sdk.openadsdk.TTAdDislike;
@@ -38,6 +43,7 @@ import com.shangame.fiction.net.response.FriendReadResponse;
 import com.shangame.fiction.net.response.MaleChannelResponse;
 import com.shangame.fiction.net.response.PictureConfigResponse;
 import com.shangame.fiction.storage.manager.UserInfoManager;
+import com.shangame.fiction.ui.author.home.NetworkImageHolderView;
 import com.shangame.fiction.ui.bookdetail.BookDetailActivity;
 import com.shangame.fiction.ui.booklib.BookLibraryActivity;
 import com.shangame.fiction.ui.booklib.BookLibraryDetailActivity;
@@ -104,14 +110,23 @@ public class BoyPageFragment extends BaseLazyFragment implements View.OnClickLis
     // 头条穿山甲
     private List<TTNativeExpressAd> mTTAdList;
 
+    private View mLayoutTop;
+    private ConvenientBanner mConvenientBanner;
+
+    private boolean hidden;
+
+    private List<PictureConfigResponse.PicItem> mList = new ArrayList<>();
+
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (adViewPagerBanner != null) {
+        hidden = getUserVisibleHint();
+        Log.e("hhh", "hidden= " + hidden);
+        if (mConvenientBanner != null) {
             if (isVisibleToUser) {
-                adViewPagerBanner.startAutoPlay();
+                mConvenientBanner.startTurning(5000);
             } else {
-                adViewPagerBanner.stopAutoPlay();
+                mConvenientBanner.stopTurning();
             }
         }
     }
@@ -163,19 +178,40 @@ public class BoyPageFragment extends BaseLazyFragment implements View.OnClickLis
     }
 
     private void initBanner(View view) {
-        bannerShadow = view.findViewById(R.id.bannerShadow);
-        adViewPagerBanner = view.findViewById(R.id.adViewPagerBanner);
-        adViewPagerBanner.setOnItemPageClickListener(new AdViewPagerBanner.OnItemPageClickListener() {
+        mLayoutTop = view.findViewById(R.id.layout_top);
+        mConvenientBanner = view.findViewById(R.id.convenientBanner);
+
+        mConvenientBanner.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onItemPageClick(int position, PictureConfigResponse.PicItem adItem) {
-                if (adItem == null) {
-                    return;
+            public void onPageScrolled(int position, float v, int i1) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                Log.e("hhh", "boy onPageSelected position= " + position);
+                if (null != mList) {
+                    PictureConfigResponse.PicItem picItem = mList.get(position);
+                    if (TextUtils.isEmpty(picItem.color) || picItem.color.trim().length() != 7) {
+                        mLayoutTop.setBackgroundColor(Color.parseColor("#324460"));
+                        if (null != getParentFragment()) {
+                            if (hidden) {
+                                ((BookStoreFragment) getParentFragment()).setAppBarColor("#324460");
+                            }
+                        }
+                    } else {
+                        mLayoutTop.setBackgroundColor(Color.parseColor(picItem.color));
+                        if (null != getParentFragment()) {
+                            if (hidden) {
+                                ((BookStoreFragment) getParentFragment()).setAppBarColor(picItem.color);
+                            }
+                        }
+                    }
                 }
-                if (adItem.bookid == 0) {
-                    WebViewActivity.lunchActivity(mActivity, "", adItem.linkurl);
-                } else {
-                    BookDetailActivity.lunchActivity(mActivity, adItem.bookid, ApiConstant.ClickType.FROM_CLICK);
-                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int i) {
+
             }
         });
     }
@@ -423,8 +459,10 @@ public class BoyPageFragment extends BaseLazyFragment implements View.OnClickLis
 
     private void loadData() {
         int userId = UserInfoManager.getInstance(mContext).getUserid();
-        bookStorePresenter.getBookData(userId, updatePage, BookStoreChannel.BOY);
-        bookStorePresenter.getPictureConfig(userId, BookStoreChannel.BOY);
+        if (null != bookStorePresenter) {
+            bookStorePresenter.getBookData(userId, updatePage, BookStoreChannel.BOY);
+            bookStorePresenter.getPictureConfig(userId, BookStoreChannel.BOY);
+        }
     }
 
     private void loadMoreData() {
@@ -581,10 +619,43 @@ public class BoyPageFragment extends BaseLazyFragment implements View.OnClickLis
     }
 
     @Override
-    public void getPictureConfigSuccess(PictureConfigResponse pictureConfigResponse) {
-        adViewPagerBanner.setPicItemList(this, pictureConfigResponse.picdata);
-        if (adViewPagerBanner.getPicItemListSize() > 0) {
-            bannerShadow.setVisibility(View.VISIBLE);
+    public void getPictureConfigSuccess(final PictureConfigResponse pictureConfigResponse) {
+        mList.addAll(pictureConfigResponse.picdata);
+        mConvenientBanner.setPages(new CBViewHolderCreator() {
+            @Override
+            public NetworkImageHolderView createHolder() {
+                return new NetworkImageHolderView();
+            }
+        }, pictureConfigResponse.picdata)
+                .setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        PictureConfigResponse.PicItem item = pictureConfigResponse.picdata.get(position);
+                        if (item.bookid == 0) {
+                            if (!TextUtils.isEmpty(item.linkurl)) {
+                                WebViewActivity.lunchActivity(mActivity, "", item.linkurl);
+                            }
+                        } else {
+                            BookDetailActivity.lunchActivity(mActivity, item.bookid, ApiConstant.ClickType.FROM_CLICK);
+                        }
+                    }
+                })
+                .setCanLoop(pictureConfigResponse.picdata.size() > 1);
+
+        if (pictureConfigResponse.picdata.size() > 1) {
+            PictureConfigResponse.PicItem picItem = pictureConfigResponse.picdata.get(0);
+            if (TextUtils.isEmpty(picItem.color) || picItem.color.trim().length() != 7) {
+                mLayoutTop.setBackgroundColor(Color.parseColor("#324460"));
+                if (null != getParentFragment()) {
+                    ((BookStoreFragment) getParentFragment()).setAppBarColor("#324460");
+                }
+            } else {
+                mLayoutTop.setBackgroundColor(Color.parseColor(picItem.color));
+                if (null != getParentFragment()) {
+                    ((BookStoreFragment) getParentFragment()).setAppBarColor(picItem.color);
+                }
+            }
+            mConvenientBanner.startTurning(5000);
         }
     }
 
@@ -598,6 +669,12 @@ public class BoyPageFragment extends BaseLazyFragment implements View.OnClickLis
     public void showError(Throwable throwable) {
         super.showError(throwable);
         smartRefreshLayout.finishRefresh();
+    }
+
+    public void initData() {
+        loadData();
+        // loadMoreData();
+        mLayoutTop.setBackgroundColor(Color.parseColor("#324460"));
     }
 
     @Override

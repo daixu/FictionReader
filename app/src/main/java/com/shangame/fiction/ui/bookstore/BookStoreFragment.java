@@ -2,13 +2,16 @@ package com.shangame.fiction.ui.bookstore;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +57,8 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
     private BoyPageFragment boyPageFragment;
     private ListenBookFragment mListenBookFragment;
 
+    private AppBarLayout mAppBar;
+
     public static BookStoreFragment newInstance() {
         BookStoreFragment fragment = new BookStoreFragment();
         return fragment;
@@ -93,6 +98,7 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
 
     private void initView(View contentView) {
         contentView.findViewById(R.id.ivSearch).setOnClickListener(this);
+        mAppBar = contentView.findViewById(R.id.app_bar);
         initViewPager(contentView);
         initMagicIndicator(contentView);
 
@@ -138,6 +144,42 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
         };
         mViewPager.setAdapter(mAdapter);
         mViewPager.setOffscreenPageLimit(1);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        setAppBarColor("#F46464");
+                        choicenessFragment.initData();
+                        break;
+                    case 1:
+                        setAppBarColor("#D0B7BA");
+                        girlPageFragment.initData();
+                        break;
+                    case 2:
+                        setAppBarColor("#324460");
+                        boyPageFragment.initData();
+                        break;
+                    case 3:
+                        setAppBarColor("#822E30");
+                        // listenBookFragment.initData();
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     private void initMagicIndicator(View contentView) {
@@ -149,7 +191,7 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
         titleList.add("男生");
         titleList.add("听书");
         CommonNavigator commonNavigator = new CommonNavigator(mContext);
-        BigMagicIndicatorAdapter magicIndicatorAdapter = new BigMagicIndicatorAdapter(mContext, mViewPager, ContextCompat.getColor(mContext, android.R.color.transparent));
+        BigMagicIndicatorAdapter magicIndicatorAdapter = new BigMagicIndicatorAdapter(mContext, mViewPager, ContextCompat.getColor(mContext, R.color.white));
         magicIndicatorAdapter.setTitleList(titleList);
         commonNavigator.setAdapter(magicIndicatorAdapter);
         magicIndicator.setNavigator(commonNavigator);
@@ -179,6 +221,11 @@ public class BookStoreFragment extends BaseFragment implements View.OnClickListe
                 }
             }, 100);
         }
+    }
+
+    public void setAppBarColor(String color) {
+        Log.e("hhh", "color== " + color);
+        mAppBar.setBackgroundColor(Color.parseColor(color));
     }
 
     public void setCurrentItem(int position) {
