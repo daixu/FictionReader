@@ -124,11 +124,9 @@ public class WeChatSharer {
     /**
      * 分享iconUrl地址
      *
-     * @param imgUrl            地址
-     * @param title          标题
-     * @param desc           描述
+     * @param imgUrl 地址
      */
-    public static void shareUrlToWx(final Context context, final String imgUrl, String title, String desc) {
+    public static void shareUrlToWx(final Context context, final String imgUrl) {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -166,6 +164,36 @@ public class WeChatSharer {
             return conn.getInputStream();
         }
         return null;
+    }
+
+    public static void shareUrlToFriendCircle(final Context context, final String imgUrl) {
+        //初始化 WXImageObject 和 WXMediaMessage 对象
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    InputStream imageStream = getImageStream(imgUrl);
+                    Bitmap bitmap = BitmapFactory.decodeStream(imageStream);
+                    WXImageObject imgObj = new WXImageObject(bitmap);
+
+                    WXMediaMessage msg = new WXMediaMessage();
+                    msg.mediaObject = imgObj;
+
+                    //构造一个Req
+                    SendMessageToWX.Req req = new SendMessageToWX.Req();
+                    req.transaction = buildTransaction("img");
+                    req.message = msg;
+                    req.scene = SendMessageToWX.Req.WXSceneTimeline;
+
+                    IWXAPI api = WXAPIFactory.createWXAPI(context, WeChatConstants.APP_ID);
+                    if (api != null) {
+                        api.sendReq(req);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public static void shareImageToFriendCircle(final Context context, final String imgPath) {
