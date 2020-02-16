@@ -13,7 +13,7 @@ public interface SharePosterContacts {
     interface View extends BaseContract.BaseView {
         void getTaskAwardSuccess(TaskAwardResponse response, int taskId);
 
-        void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean);
+        void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean, int type);
 
         void getSharePosterFailure(String msg);
 
@@ -23,6 +23,6 @@ public interface SharePosterContacts {
     interface Presenter<V> extends BaseContract.BaserPresenter<V> {
         void getTaskAward(long userId, int taskId, boolean showLoading);
 
-        void getSharePoster(int agentId, int tempId);
+        void getSharePoster(int agentId, int tempId, int type);
     }
 }

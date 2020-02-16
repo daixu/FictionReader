@@ -45,7 +45,7 @@ public class SharePosterPresenter extends RxPresenter<SharePosterContacts.View> 
     }
 
     @Override
-    public void getSharePoster(int agentId, int tempId) {
+    public void getSharePoster(int agentId, int tempId, final int type) {
         ApiManager.getInstance().getSharePoster(agentId, tempId)
                 .compose(RxUtil.<GetSharePosterResp>applySchedulers(RxUtil.IO_ON_UI_TRANSFORMER_BACK_PRESSURE))
                 .compose(mView.<GetSharePosterResp>bindToLife())
@@ -55,7 +55,7 @@ public class SharePosterPresenter extends RxPresenter<SharePosterContacts.View> 
                         if (null != resp) {
                             if (resp.isOk()) {
                                 if (null != resp.data) {
-                                    mView.getSharePosterSuccess(resp.data);
+                                    mView.getSharePosterSuccess(resp.data, type);
                                 } else {
                                     mView.getSharePosterFailure("请求失败");
                                 }

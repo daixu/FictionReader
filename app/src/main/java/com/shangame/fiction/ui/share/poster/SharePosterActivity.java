@@ -148,9 +148,58 @@ public class SharePosterActivity extends BaseActivity implements SharePosterCont
     }
 
     @Override
-    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean) {
+    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean, int type) {
         Log.e("hhh", dataBean.shareImage);
-        WeChatSharer.shareUrlToWx(mContext, dataBean.shareImage, "hhh", "hhhcontent");
+        switch (type) {
+            case 1: {
+                WeChatSharer.shareUrlToWx(mContext, dataBean.shareImage);
+            }
+            break;
+            case 2: {
+                WeChatSharer.shareUrlToFriendCircle(mContext, dataBean.shareImage);
+            }
+            break;
+            case 3: {
+                QQSharer.shareToQQFriend(mActivity, "安马文学", "安马文学", dataBean.shareImage, dataBean.shareImage, new IUiListener() {
+                    @Override
+                    public void onComplete(Object o) {
+                        showToast("分享成功");
+                        long userId = UserInfoManager.getInstance(mContext).getUserid();
+                        mPresenter.getTaskAward(userId, TaskId.SHARE_CHAPTER, true);
+                    }
+
+                    @Override
+                    public void onError(UiError uiError) {
+                    }
+
+                    @Override
+                    public void onCancel() {
+                    }
+                });
+            }
+            break;
+            case 4: {
+                QQSharer.shareImageToQzone(mActivity, dataBean.shareImage, "安马文学", "安马文学", dataBean.shareImage, new IUiListener() {
+                    @Override
+                    public void onComplete(Object o) {
+                        showToast("分享成功");
+                        long userId = UserInfoManager.getInstance(mContext).getUserid();
+                        mPresenter.getTaskAward(userId, TaskId.SHARE_CHAPTER, true);
+                    }
+
+                    @Override
+                    public void onError(UiError uiError) {
+                    }
+
+                    @Override
+                    public void onCancel() {
+                    }
+                });
+            }
+            break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -184,23 +233,32 @@ public class SharePosterActivity extends BaseActivity implements SharePosterCont
             public void onShareToWeChat() {
                 UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
                 int agentId = userInfo.agentId;
-                mPresenter.getSharePoster(agentId, mPosition + 1);
+                mPresenter.getSharePoster(agentId, mPosition + 1, 1);
                 // shareWeChat();
             }
 
             @Override
             public void onShareToFriendCircle() {
-                shareFriendCircle();
+                UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
+                int agentId = userInfo.agentId;
+                mPresenter.getSharePoster(agentId, mPosition + 1, 2);
+                // shareFriendCircle();
             }
 
             @Override
             public void onShareQq() {
-                shareQq();
+                UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
+                int agentId = userInfo.agentId;
+                mPresenter.getSharePoster(agentId, mPosition + 1, 3);
+                // shareQq();
             }
 
             @Override
             public void onShareQqZone() {
-                shareQqZone();
+                UserInfo userInfo = UserInfoManager.getInstance(mContext).getUserInfo();
+                int agentId = userInfo.agentId;
+                mPresenter.getSharePoster(agentId, mPosition + 1, 4);
+                // shareQqZone();
             }
         });
         sharePopupWindow.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);

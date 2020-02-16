@@ -276,7 +276,7 @@ public class InviteFriendsActivity extends BaseActivity implements SharePosterCo
     }
 
     @Override
-    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean) {
+    public void getSharePosterSuccess(GetSharePosterResp.DataBean dataBean, int type) {
 
     }
 
