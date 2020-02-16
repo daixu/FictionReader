@@ -61,11 +61,13 @@ import com.shangame.fiction.net.response.BookRackFilterConfigResponse;
 import com.shangame.fiction.net.response.BookRackResponse;
 import com.shangame.fiction.net.response.FreeReadResponse;
 import com.shangame.fiction.net.response.RecommendBookResponse;
+import com.shangame.fiction.statis.ReadTracer;
 import com.shangame.fiction.storage.db.BookReadProgressDao;
 import com.shangame.fiction.storage.db.BookRecordBeanDao;
 import com.shangame.fiction.storage.db.LocalBookBeanDao;
 import com.shangame.fiction.storage.manager.DbManager;
 import com.shangame.fiction.storage.manager.UserInfoManager;
+import com.shangame.fiction.storage.manager.UserSetting;
 import com.shangame.fiction.storage.manager.VisitorDbManager;
 import com.shangame.fiction.storage.model.BookBean;
 import com.shangame.fiction.storage.model.BookBrowseHistory;
@@ -87,6 +89,7 @@ import com.shangame.fiction.ui.reader.local.LocalReadActivity;
 import com.shangame.fiction.ui.reader.local.bean.BookRecordBean;
 import com.shangame.fiction.ui.reader.local.bean.CollBookBean;
 import com.shangame.fiction.ui.signin.SigninPopupWindow;
+import com.shangame.fiction.ui.task.TaskId;
 import com.shangame.fiction.widget.SmartViewSwitcher;
 import com.shangame.fiction.widget.SpaceItemDecoration;
 
@@ -143,6 +146,8 @@ public class BookListFragment extends BaseFragment implements View.OnClickListen
     private FrameLayout adContainer1;
     // 头条穿山甲
     private List<TTNativeExpressAd> mTTAdList;
+
+    private ReadTracer readTracer;
 
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
@@ -492,9 +497,40 @@ public class BookListFragment extends BaseFragment implements View.OnClickListen
                     smartViewSwitcher.startLooping();
                     break;
                 case 2:
-                    tvSign.setText(freeReadItem.newviptext);
+                    // tvSign.setText(freeReadItem.newviptext);
+
+                    long totalReadTime = readTracer.getTotalReadTime();
+
                     Intent intent = new Intent(BroadcastAction.UPDATE_SIAN_INFO);
-                    intent.putExtra("signInfo", freeReadItem.newviptext);
+                    if (totalReadTime > ReadTracer.READ_200) {
+
+                    } else if (totalReadTime >= ReadTracer.READ_100) {
+                        long time = (ReadTracer.READ_200 - totalReadTime) / 60;
+                        intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                    } else if (totalReadTime >= ReadTracer.READ_30) {
+                        long time = (ReadTracer.READ_100 - totalReadTime) / 60;
+                        intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                    } else if (totalReadTime >= ReadTracer.READ_10) {
+                        long time = (ReadTracer.READ_30 - totalReadTime) / 60;
+                        intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                    } else {
+                        long userId = UserInfoManager.getInstance(mContext).getUserid();
+                        if (userId == 0) {
+                            long time = (ReadTracer.READ_10 - totalReadTime) / 60;
+                            intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                        } else {
+                            UserSetting userSetting = UserSetting.getInstance(mActivity);
+                            int nextTaskId = userSetting.getInt(SharedKey.NEXT_TASK_ID, 0);
+                            if (nextTaskId == TaskId.READ_10) {
+                                long time = (ReadTracer.READ_10 - totalReadTime) / 60;
+                                intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                            } else {
+                                long time = (ReadTracer.READ_30 - totalReadTime) / 60;
+                                intent.putExtra("signInfo", "再读" + time + "分钟领取现金红包");
+                            }
+                        }
+                    }
+
                     LocalBroadcastManager.getInstance(mContext).sendBroadcast(intent);
                     break;
                 default:
@@ -974,6 +1010,8 @@ public class BookListFragment extends BaseFragment implements View.OnClickListen
         intentFilter.addAction(BroadcastAction.UPDATE_LOCAL_BOOK);
         intentFilter.addAction(BroadcastAction.UPLOAD_WIFI_BOOK);
         LocalBroadcastManager.getInstance(mContext).registerReceiver(mReceiver, intentFilter);
+
+        readTracer = new ReadTracer(mContext);
     }
 
     @Override

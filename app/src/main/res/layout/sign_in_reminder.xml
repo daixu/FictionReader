@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/signLayout"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:padding="12dp"
-    >
+    android:orientation="horizontal"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/tvSign"
         android:layout_width="0dp"
-        android:layout_weight="1"
         android:layout_height="wrap_content"
-        android:drawablePadding="10dp"
+        android:layout_weight="1"
         android:drawableLeft="@drawable/sign"
-        android:text="今日签到福利领取~"/>
+        android:drawablePadding="10dp"
+        android:text="今日签到福利领取~" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/item_arrow"/>
+        android:src="@drawable/item_arrow" />
 
 </LinearLayout>

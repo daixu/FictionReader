@@ -115,8 +115,11 @@ public class SigninPopupWindow extends BasePopupWindow implements View.OnClickLi
 
         if (signInResponse.coin > 0) {
             showToast("签到成功");
-            TaskRewardPopupWindow taskRewardPopupWindow = new TaskRewardPopupWindow(mActivity);
-            taskRewardPopupWindow.show("", signInResponse.msg + "");
+//            TaskRewardPopupWindow taskRewardPopupWindow = new TaskRewardPopupWindow(mActivity);
+//            taskRewardPopupWindow.show("", signInResponse.msg + "");
+//            dismiss();
+            TaskCompletedPopupWindow popupWindow = new TaskCompletedPopupWindow(mActivity);
+            popupWindow.show("", signInResponse.msg + "");
             dismiss();
         } else {
             hadSignIn = true;
