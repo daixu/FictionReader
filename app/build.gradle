@@ -202,6 +202,8 @@ dependencies {
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
+    implementation 'com.google.android:flexbox:1.0.0'
+
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.6'
     implementation project(':notchtools')
 }
